@@ -1,10 +1,6 @@
 {% extends "quiz/index.html" %}
 {% block content %}
-{% if message %}
-<div class="alert alert-danger mt-1">
-    {{ message }}
-</div>
-{% endif %}
+
 <div class="container text-center mt-4 p-4 border rounded-5 bg-secondary ">
       <form class="vw-25 p-4" action="{% url 'user:register' %}" method="POST">
         {% csrf_token %}

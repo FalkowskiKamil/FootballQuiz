@@ -55,13 +55,30 @@
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link fw-bolder text-danger" href="#">Login</a>
+            <a class="nav-link fw-bolder text-danger" href="">{{user.username}}</a>
             </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bolder text-danger" href="{% url 'user:logout_request' %}">Logout</a>
+            </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link fw-bolder text-danger" href="{% url 'user:login_request' %}">Login</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bolder text-danger" href="{% url 'user:register' %}">Register</a>
+            </li>
+          {% endif %}
           </ul>
         </div>
       </div>
     </nav>
+  {% if message %}
+<div class="alert alert-danger mt-1">
+    {{ message }}
+</div>
+{% endif %}
     {% block content %}
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
