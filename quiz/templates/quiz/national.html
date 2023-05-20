@@ -9,40 +9,46 @@
     <h1 class="mt-2">National Team Quiz</h1>
     <small>Date from: 07-1916 to 03-2023</small>
     <h2>Write a team with:</h2>
-      <form class="row gy-5 g-3 justify-content-center ">
-      <div class="col-4">
+      <form id="nationaltest" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center ">
+      {% csrf_token %}
+        <div class="col-4">
         <div class="p-3 border bg-light">
           <label for="most_goal" class="form-label">Most Goal:</label>
-          <input type="text" class="form-control"  id="most_goal" list="nations">
+          <input type="text" class="form-control"  id="most_goal" list="nations" name="most_goal">
         </div>
       </div>
       <div class="col-4">
         <div class="p-3 border bg-light">
           <label for="Most Home Goal" class="form-label">Most Home Goal:</label>
-          <input type="text" class="form-control" id="most_home_goal" list="nations">
+          <input type="text" class="form-control" id="most_home_goal" list="nations" name="most_home_goal">
         </div>
       </div>
       <div class="col-4">
         <div class="p-3 border bg-light">
           <label for="most_away_goal" class="form-label">Most Away Goal:</label>
-          <input type="text" class="form-control" id="most_away_goal" list="nations">
+          <input type="text" class="form-control" id="most_away_goal" list="nations" name="most_away_goal">
         </div>
       </div>
       <div class="col-4">
         <div class="p-3 border bg-light">
           <label for="most_own_goal" class="form-label">Most Own Goal:</label>
-          <input type="text" class="form-control" id="most_own_goal" list="nations">
+          <input type="text" class="form-control" id="most_own_goal" list="nations" name="most_own_goal">
         </div>
       </div>
       <div class="col-4">
         <div class="p-3 border bg-light">
-          
           <label for="most_wc_goal" class="form-label">Most World Cup Goal:</label>
-          <input type="text" class="form-control" id="most_wc_goal" list="nations">
+          <input type="text" class="form-control" id="most_wc_goal" list="nations" name="most_wc_goal">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="p-3 border bg-light">
+          <label for="most_penalty_goal" class="form-label">Most Penalty scored:</label>
+          <input type="text" class="form-control" id="most_penalty_goal" list="nations" name="most_penalty_goal">
         </div>
       </div>
       <div class="d-grid gap-2">
-        <button type='button'  class="btn btn-danger">Send</button>
+        <button type='submit'  class="btn btn-danger">Send</button>
       </div>
       </form>
 </div>

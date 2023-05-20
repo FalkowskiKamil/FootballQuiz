@@ -8,5 +8,6 @@ app_name='quiz'
 urlpatterns = [
     path('', views.main, name='main'),
     path('clubs/', views.clubs, name='clubs'),
-    path('national/', views.national, name='national')
+    path('national/', views.national, name='national'),
+    path('<str:quiz_type>/result/', views.result, name='result')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
