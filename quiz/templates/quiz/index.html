@@ -9,7 +9,7 @@
   <body>
     <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="#">
+        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main' %}">
           <img src="/static/quiz/logo2.png" alt="Logo" width="35" class="d-inline-block align-text-top ">
           <span >Football Quiz</span>
         </a>
@@ -24,10 +24,9 @@
                 Quiz
               </a>
               <ul class="dropdown-menu">
-                <li >Country</li>
-                <li><a class="dropdown-item" href="#">Most Goals</a></li>
-                <li><a class="dropdown-item" href="#">Most Assist</a></li>
-                <li><hr class="dropdown-divider">Nations</li>
+                <li><a class="dropdown-item" href="{% url 'quiz:clubs' %}">Club</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:national' %}">National</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>

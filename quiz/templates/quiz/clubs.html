@@ -1,0 +1,36 @@
+{% extends "quiz/index.html" %}
+{% block content %}
+<div class="container text-center">
+    <h1 class="mt-2">Club Quiz</h1>
+    <small>Data for </small>
+    <div class="mt-1 row gy-5">
+      <div class="col-6">
+        <div class="p-3 border bg-light">
+          <a href="{% url 'quiz:clubs' %}">Most goal</a>
+          <p>Opis</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light">
+            <a href="{% url 'quiz:clubs' %}">Most owngoal</a>
+            <p>Opis</p>
+          </div>
+        </div>
+    </div>
+    <div class="mt-1 row gy-5">
+      <div class="col-6">
+        <div class="p-3 border bg-light">
+            <a href="{% url 'quiz:clubs' %}">Most red card</a>
+            <p>Opis</p>
+          </div>
+       </div>
+       <div class="col-6">
+       <div class="p-3 border bg-light">
+        <a href="{% url 'quiz:clubs' %}">Most value</a>
+        <p>Opis</p>
+      </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
