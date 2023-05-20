@@ -1,8 +1,13 @@
 {% extends "quiz/index.html" %}
 {% block content %}
-
+{% if message %}
+<div class="alert alert-danger mt-1">
+    {{ message }}
+</div>
+{% endif %}
 <div class="container text-center mt-4 p-4 border rounded-5 bg-secondary ">
-      <form class="vw-25 p-4">
+      <form class="vw-25 p-4" action="{% url 'user:register' %}" method="POST">
+        {% csrf_token %}
         <img class="mb-4" src="/static/quiz/logo2.png" alt="" width="50" height="57">
         <h1 class="h3 mb-3 fw-bolder">Please sign in</h1>
 
@@ -14,11 +19,7 @@
         <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required> 
         <label for="psw" class="m-2"><b>Password</b></label>
         <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
-        {% if message %}
-        <div class="alert alert-warning">
-            {{ message }}
-        </div>
-        {% endif %}
+
         <button class="btn btn-primary mt-4" type="submit">Sign up</button> 
       </form>
 </div>
