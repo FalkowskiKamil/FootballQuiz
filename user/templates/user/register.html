@@ -1,0 +1,27 @@
+{% extends "quiz/index.html" %}
+{% block content %}
+
+<div class="container text-center mt-4 p-4 border rounded-5 bg-secondary ">
+      <form class="vw-25 p-4">
+        <img class="mb-4" src="/static/quiz/logo2.png" alt="" width="50" height="57">
+        <h1 class="h3 mb-3 fw-bolder">Please sign in</h1>
+
+        <label for="username" class="m-2"><b>User Name</b></label>
+        <input type="text" class="form-control" placeholder="Enter User Name: " name="username" required> 
+        <label for="firstname" class="m-2"><b>First Name</b></label>
+        <input type="text" class="form-control" placeholder="Enter First Name: " name="firstname" required> 
+        <label for="lastname" class="m-2"><b>Last Name</b></label>
+        <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required> 
+        <label for="psw" class="m-2"><b>Password</b></label>
+        <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+        {% if message %}
+        <div class="alert alert-warning">
+            {{ message }}
+        </div>
+        {% endif %}
+        <button class="btn btn-primary mt-4" type="submit">Sign up</button> 
+      </form>
+</div>
+    
+        
+{% endblock %}
