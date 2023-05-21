@@ -2,18 +2,6 @@
 {% block content %}
 <div class="container text-center mt-2">
 <h1>{{ quiz_type }} quiz result:</h1>
-{% for team, score in home_goal.items %}
-{{team}} {{score}}
-{% endfor %}
-<p></p>
-<p></p>
-<p></p>
-{% for team, score in away_goal.items %}
-{{team}} {{score}}
-{% endfor %}
-<p></p>
-{% for team,score in most_goal.items %}
-{{team}} {{score}}
-{% endfor %}
+{{score}}
 </div>
 {% endblock %}
