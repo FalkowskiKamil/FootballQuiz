@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import data_manager
+from . import models
 # Create your views here.
 def main(request):
     context = {}
@@ -20,9 +21,14 @@ def national(request):
     
 def result(request, quiz_type):
     context={'quiz_type':quiz_type}
+    score=int()
     answer={}
     for key,value in request.POST.items():
         answer[key]=value
-    result = data_manager.home_goal(answer['most_home_goal'])
-    context['score']=result
+    score += data_manager.home_goal(answer['most_home_goal'])
+    score += data_manager.away_goal(answer['most_away_goal'])
+    score += data_manager.most_goal(answer['most_goal'])
+    user = request.user if request.user.is_authenticated else None
+    x= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
+    context['score']=x
     return render(request, template_name='quiz/result.html', context=context)

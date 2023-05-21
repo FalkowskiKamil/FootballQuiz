@@ -16,4 +16,4 @@ class Quiz(models.Model):
     date = models.DateTimeField(default=datetime.utcnow)
 
     def __str__(self):
-        return f"{self.score}"
+        return f"User: {self.user} got: {self.score} in quiz: {self.quiz_type}"
