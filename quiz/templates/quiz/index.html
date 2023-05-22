@@ -56,7 +56,7 @@
           <ul class="navbar-nav mb-2 mb-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link fw-bolder text-danger" href="">{{user.username}}</a>
+            <a class="nav-link fw-bolder text-danger" href="{% url 'quiz:profile' user_id=user.id %}">{{user.username}}</a>
             </li>
           <li class="nav-item">
             <a class="nav-link fw-bolder text-danger" href="{% url 'user:logout_request' %}">Logout</a>

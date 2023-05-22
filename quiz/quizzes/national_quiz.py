@@ -54,7 +54,7 @@ def most_wc_goal(answer):
     score_totals = world_cup_data.groupby('country')['home_score', 'away_score'].sum()
     score_totals['total_score'] = score_totals['home_score'] + score_totals['away_score']
     if answer[1] not in score_totals.index:
-        return 100
+        return 0
     else:
         if score_totals.index.get_loc(answer[1]) > 30:
             score=0

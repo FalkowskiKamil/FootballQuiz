@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from . import quiz_manager
+from django.contrib.auth.models import User
 from . import models
-from .quizzes import national_quiz
 # Create your views here.
 def main(request):
     context = {}
@@ -26,3 +26,10 @@ def result(request, quiz_type):
     result= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
     context={'score':result}
     return render(request, template_name='quiz/result.html', context=context)
+
+def profile(request, user_id):
+    context={
+        'profile': User.objects.get(id=user_id),
+        'result_national' : models.Quiz.objects.filter(user=user_id, quiz_type='national')
+    }
+    return render(request, template_name='quiz/profile.html', context=context)
