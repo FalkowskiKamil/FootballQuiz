@@ -10,5 +10,6 @@ urlpatterns = [
     path('clubs/', views.clubs, name='clubs'),
     path('national/', views.national, name='national'),
     path('<str:quiz_type>/result', views.result, name='result'),
-    path('profile/<int:user_id>', views.profile, name='profile')
+    path('profile/<int:user_id>', views.profile, name='profile'),
+    path('ranking/<str:quiz_type>', views.ranking, name='ranking')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

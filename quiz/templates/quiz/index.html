@@ -35,7 +35,7 @@
                 Top
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Most Goals</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Rank National Quiz</a></li>
                 <li><a class="dropdown-item" href="#">Most Assist</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -45,10 +45,7 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 FunFact
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Most Goals</a></li>
-                <li><a class="dropdown-item" href="#">Most Assist</a></li>
-                <li><hr class="dropdown-divider"></li>
+              <ul class="dropdown-menu"><li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#" role="button">Something else here</a></li>
               </ul>
             </li>

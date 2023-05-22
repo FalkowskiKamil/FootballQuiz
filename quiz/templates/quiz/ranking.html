@@ -1,0 +1,28 @@
+{% extends "quiz/index.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>Ranking of quiz: {{quiz_type}}</h1>
+    <h2>Best score: {{result.first.score}} by 
+        <a href="{% url 'quiz:profile' user_id=result.first.user.id %}">{{result.first.user.username}}</a> on {{result.first.date}}
+    </h2> 
+    {% if result.1 %}    
+    <h2>Second: {{ result.1.score }} by 
+        {% if result.1.user.username %} <a href="{% url 'quiz:profile' user_id=result.1.user.id %}">{{result.1.user}} </a>
+        {% else%} Not registrated user
+        {% endif%}
+        on {{result.1.date}}</h2>
+    {% endif%}
+    {% if result.2 %}
+        <h3>Third: 
+        {{ result.2.score }} by 
+        {% if result.2.user.username %}
+        <a href="{% url 'quiz:profile' user_id=result.2.user.id %}">{{result.2.user.username}}</a>
+        {% else %}
+        Unregistered
+        {% endif %}
+         on {{result.2.date}}</h3>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -33,3 +33,9 @@ def profile(request, user_id):
         'result_national' : models.Quiz.objects.filter(user=user_id, quiz_type='national')
     }
     return render(request, template_name='quiz/profile.html', context=context)
+
+def ranking(request, quiz_type):
+    context={'quiz_type':quiz_type,
+             'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score')
+            }
+    return render(request, template_name='quiz/ranking.html', context=context)
