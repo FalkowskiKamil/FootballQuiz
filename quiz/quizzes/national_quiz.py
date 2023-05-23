@@ -73,4 +73,6 @@ def most_penalty_goal(answer):
             score = len(penalty_goal_counts) - penalty_goal_counts.index.get_loc(answer[1])
         return score
 
+
+question = ['Most Goal', 'Most Home Goal', 'Most Away Goal', "Most Own Goal", 'Most World Cup', 'Most Penalty Scored']
 national_functions = [most_goal, home_goal, away_goal, most_own_goal, most_wc_goal, most_penalty_goal]

@@ -4,8 +4,8 @@
 <div class="container">
     <h1>Profile of user: {{profile}}</h1>
 
-    {% for quiz in result_national %}
-      <p>{{ quiz.score }} on {{ quiz.date }}</p>
+    {% for quiz in result %}
+      <p>{{ quiz.score }} on {{ quiz.date }} in {{quiz.quiz_type}}</p>
     {% endfor %}
   
   

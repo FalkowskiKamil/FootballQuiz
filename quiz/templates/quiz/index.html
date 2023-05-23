@@ -24,8 +24,8 @@
                 Quiz
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'quiz:clubs' %}">Club</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:national' %}">National</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='clubs' %}">Club</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='national'%}">National</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
