@@ -11,20 +11,25 @@ def main(request):
     return render(request, template_name='quiz/main.html', context=context)
 
 def clubs(request):
-    context={}
+    context={'quiz_type':'clubs'}
+    data=quiz_manager.get_info('clubs')
+    context['clubs_all'] = data[0]
+    context['date'] = data[1:3]
+    context['competition'] = data[3]
     return render(request, template_name='quiz/clubs.html', context=context)
 
 def national(request):
     context={'quiz_type':'national'}
-    if request.method=='GET':
-        context['nation']= quiz_manager.get_info('nation')
-        return render(request, template_name='quiz/national.html', context=context)
+    data = quiz_manager.get_info('nation')
+    context['nation'] = data[0]
+    context['date'] = data[1:]
+    return render(request, template_name='quiz/national.html', context=context)
     
 def result(request, quiz_type):
     score=quiz_manager.national(request.POST.items())
     user = request.user if request.user.is_authenticated else None
     result= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
-    context={'score':result}
+    context={'score':result.order_by('score')}
     return render(request, template_name='quiz/result.html', context=context)
 
 def profile(request, user_id):

@@ -4,11 +4,9 @@
 <div class="container">
     <h1>Profile of user: {{profile}}</h1>
 
-    {% with sorted_results=result_national|dictsort:"score" %}
-    {% for x in sorted_results reversed %}
-      <p>{{ x.score }} on {{ x.date }}</p>
+    {% for quiz in result_national %}
+      <p>{{ quiz.score }} on {{ quiz.date }}</p>
     {% endfor %}
-  {% endwith %}
   
   
 </div>
