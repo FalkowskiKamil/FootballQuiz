@@ -9,47 +9,31 @@
   <form id="clubtest" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     <div class="col-4">
       <div class="p-3 border bg-light">
-        <label for="most_goal" class="form-label">Most Goal:</label>
-        <select class="form-select" id="sss" name="sss" required>
+        <label for="most_home" class="form-label">Most Home Goal:</label>
+        <select class="form-select" id="most_home" name="most_home" required>
           <option value="" selected disabled>Select a club</option>
-          
           {% for club in clubs_all %}
             <option value="{{ club }}">{{club}}</option>
           {% endfor %}
-          
           </select>
-          
       </div>
     </div>
-
-    <div class="mt-1 row gy-5">
-      <div class="col-6">
-        <div class="p-3 border bg-light">
-          <a href="{% url 'quiz:clubs' %}">Most goal</a>
-          <p>Opis</p>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 border bg-light">
-            <a href="{% url 'quiz:clubs' %}">Most owngoal</a>
-            <p>Opis</p>
-          </div>
-        </div>
-    </div>
-    <div class="mt-1 row gy-5">
-      <div class="col-6">
-        <div class="p-3 border bg-light">
-            <a href="{% url 'quiz:clubs' %}">Most red card</a>
-            <p>Opis</p>
-          </div>
-       </div>
-       <div class="col-6">
-       <div class="p-3 border bg-light">
-        <a href="{% url 'quiz:clubs' %}">Most value</a>
-        <p>Opis</p>
+    <div class="col-4">
+      <div class="p-3 border bg-light">
+        <label for="most_away" class="form-label">Most Away Goal:</label>
+        <select class="form-select" id="most_away" name="most_away" required>
+          <option value="" selected disabled>Select a club</option>
+          {% for club in clubs_all %}
+            <option value="{{ club }}">{{club}}</option>
+          {% endfor %}
+          </select>
       </div>
     </div>
+    {% csrf_token %}
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-danger">Send</button>
     </div>
+  </form>
 </div>
 
 {% endblock %}
