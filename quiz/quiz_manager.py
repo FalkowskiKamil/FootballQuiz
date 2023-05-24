@@ -1,11 +1,12 @@
 from .quizzes import national_quiz
 from .quizzes import clubs_quiz
+from .quizzes import stadium_quiz
 
 def get_info(type):
     if type == 'national':
         nations = national_quiz.df['home_team'].sort_values().unique
         date = national_quiz.df['date'].sort_values()
-        competition = national_quiz.df['tournament'].sort_values().unique
+        competition =  national_quiz.df['tournament'].unique()
         question = national_quiz.question
         return [nations, date[0], date.iloc[-1], competition, question]
     
@@ -16,6 +17,11 @@ def get_info(type):
         question = clubs_quiz.question
         return [clubs, date[0], date.iloc[-1], competition, question]
     
+    if type == 'stadium':
+        stadium2 = stadium_quiz.df[(stadium_quiz.df['sport_played'] == 'Football') & (stadium_quiz.df['total_capacity'] > '15,000')]['country'].sort_values().unique
+        question= stadium_quiz.question
+        return [stadium2, None, None , None, question]
+
 def get_quiz(quiz_type, items):
     score=0
     if quiz_type=='national':
@@ -28,4 +34,10 @@ def get_quiz(quiz_type, items):
         for i, answer in enumerate(items):
             if i < len(clubs_quiz.clubs_functions):
                 score += clubs_quiz.clubs_functions[i](answer)
+        return score
+    
+    elif quiz_type=='stadium':
+        for i, answer in enumerate(items):
+            if i < len(stadium_quiz.stadium_functions):
+                score += stadium_quiz.stadium_functions[i](answer)
         return score

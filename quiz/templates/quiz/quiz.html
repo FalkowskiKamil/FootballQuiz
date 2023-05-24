@@ -2,8 +2,17 @@
 {% block content %}
 <div class="container text-center">
     <h1 class="mt-2">{{ quiz_type|title }} quiz</h1>
-  <small>Date from: {{first_date}} to {{last_date}} {% if competition.all|length  < 20 %}, about: {% for comp in competition %}{{comp}} / {% endfor %}{% endif %}</small>
-    <h2>Choose a team with:</h2>
+    {% if first_date %}<small>Date from: {{first_date}} to {{last_date}} 
+      {% if competition.all %}, about: 
+        {% for comp in competition %}
+          {% if forloop.counter <= 9 %}{{comp}} / 
+          {% elif forloop.counter == 10 %} 
+          and {{ competition|length|add:-9}}
+          more..
+          {% endif %}</small>
+        {% endfor %}
+       {% endif %}
+       {% endif %}
 
 <form id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     {% for question in questions %}
