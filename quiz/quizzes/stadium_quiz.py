@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("quiz/data/stadium/all_stadiums.csv", )
+df = pd.read_csv("quiz/data/stadium/all_stadiums.csv", usecols=[1,2,5,6])
 df['total_capacity'] = df['total_capacity'].str.replace(',', '').astype(int)
 
 def biggest_stadium(answer):
@@ -74,7 +74,6 @@ def af_most(answer):
         else:
             score = len(most_stadium) - most_stadium.index.get_loc(answer[1])
         return score
-
 
 
 question=['World biggest stadium:', 'EU biggest stadium:', 'SA biggest stadium:', 'EU most +15k stadium', 'Asia most +15k stadium', 'Africa most +15k stadium']

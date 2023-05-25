@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("quiz/data/clubs/football_results.csv", encoding="ISO-8859-1")
+df = pd.read_csv("quiz/data/clubs/football_results.csv", encoding="ISO-8859-1", usecols=['Date','Competition','Team', 'Team_Score', 'Opponent', 'Opponent_Score', 'Home_Penalties', 'Away_Penalties', 'Team_Points', 'Opponent_Points' ])
 
 def home_goal(answer):
     home_team = df.groupby('Team')
