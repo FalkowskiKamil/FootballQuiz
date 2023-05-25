@@ -34,25 +34,17 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Top
+                Rank
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Club Quiz Rank</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">National Quiz Rank</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadium Quiz Rank</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cup Quiz Rank</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='All' %}">All Quiz Rank</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">All Quiz Rank</a></li>
 
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                FunFact
-              </a>
-              <ul class="dropdown-menu"><li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" role="button">Something else here</a></li>
               </ul>
             </li>
           </ul>

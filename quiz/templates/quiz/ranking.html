@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container">
-    <h1>Ranking of quiz: {{quiz_type}}</h1>
+    <h1>Ranking of quiz: {{quiz_type|title}}</h1>
     <h2>Best score: {{result.first.score}} by 
         <a href="{% url 'quiz:profile' user_id=result.first.user.id %}">{{result.first.user.username}}</a> on {{result.first.date}} {% if result.first.quiz_type != quiz_type %} in {{result.first.quiz_type}}{% endif %} 
     </h2> 
