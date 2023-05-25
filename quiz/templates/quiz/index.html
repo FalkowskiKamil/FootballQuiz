@@ -26,6 +26,8 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='clubs' %}">Club</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='national'%}">National</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='stadium' %}">Stadium</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='wc' %}">World Cup</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
@@ -35,8 +37,10 @@
                 Top
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Rank National Quiz</a></li>
-                <li><a class="dropdown-item" href="#">Most Assist</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Club Quiz Rank</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">National Quiz Rank</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadium Quiz Rank</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cup Quiz Rank</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>

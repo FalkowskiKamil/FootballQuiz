@@ -26,7 +26,7 @@ def profile(request, user_id):
 
 def ranking(request, quiz_type):
     context={'quiz_type':quiz_type,
-             'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score')
+             'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score').reverse
             }
     return render(request, template_name='quiz/ranking.html', context=context)
 
