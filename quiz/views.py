@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from . import quiz_manager
+from . import quiz_manager, squad_manager, models
 from django.contrib.auth.models import User
-from . import models
 # Create your views here.
 def main(request):
     context = {}
@@ -44,3 +43,8 @@ def quiz(request, quiz_type):
             'questions':data[4]}
     return render(request, template_name='quiz/quiz.html', context=context)
     
+def squad_challange(request):
+    data=squad_manager.info()
+    attack_players = data[data['position'] == 'Attack']['name'].tolist()
+    context={'attack': attack_players}
+    return render(request, template_name='quiz/squad.html', context=context)

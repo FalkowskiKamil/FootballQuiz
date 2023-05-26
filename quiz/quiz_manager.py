@@ -1,7 +1,4 @@
-from .quizzes import national_quiz
-from .quizzes import clubs_quiz
-from .quizzes import stadium_quiz
-from .quizzes import world_cup
+from .quizzes import national_quiz, clubs_quiz, stadium_quiz,  world_cup
 
 def get_info(type):
     if type == 'national':
