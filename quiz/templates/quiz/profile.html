@@ -2,12 +2,22 @@
 
 {% block content %}
 <div class="container">
-    <h1>Profile of user: {{profile}}</h1>
-
-    {% for quiz in result %}
-      <p>{{ quiz.score }} on {{ quiz.date }} in {{quiz.quiz_type}}</p>
-    {% endfor %}
-  
-  
+  <h1 class="mt-2 text-center">Best result for User: {{ profile }}</h1>
+  {% regroup result by quiz_type as quiz_results %}
+  {% for quiz_type, quizzes in quiz_results %}
+    <div class="card mt-3">
+      <div class="card-body bg-light">
+        <h5 class="card-title text-primary text-center">{{ quiz_type|title }} Quiz</h5>
+        {% for quiz in quizzes|slice:":3" %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Score: {{ quiz.score }}</h6>
+              <p class="card-text">Date: {{ quiz.date }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
 </div>
 {% endblock %}

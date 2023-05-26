@@ -1,31 +1,32 @@
 {% extends "quiz/index.html" %}
+
 {% block content %}
 <div class="container text-center">
-    <h1 class="mt-2">{{ quiz_type|title }} quiz</h1>
-    {% if first_date %}<small>Date from: {{first_date}} to {{last_date}} 
-      {% if competition.all %}, about: 
-        {% for comp in competition %}
-          {% if forloop.counter <= 9 %}{{comp}} / 
-          {% elif forloop.counter == 10 %} 
-          and {{ competition|length|add:-9}}
-          more..
-          {% endif %}</small>
-        {% endfor %}
-       {% endif %}
-       {% endif %}
+  <h1 class="mt-2">{{ quiz_type|title }} Quiz</h1>
+  {% if first_date %}
+  <small>Date from: {{ first_date }} to {{ last_date }} 
+    {% if competition.all %}, about: 
+      {% for comp in competition %}
+        {% if forloop.counter <= 9 %}{{ comp }} / 
+        {% elif forloop.counter == 10 %}and {{ competition|length|add:-9 }} more...
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </small>
+  {% endif %}
 
-<form id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
+  <form id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     {% for question in questions %}
-    <div class="col-4">
-        <div class="p-3 border bg-light">
-        <label for="{{question}}" class="form-label">{{question}}</label>
-        <select class="form-select" id="{{question}}" name="{{question}}" required>
-            <option value="" selected disabled>Select team</option>
-            {% for team in teams %}
-            <option value="{{ team }}">{{ team }}</option>
-            {% endfor %}
+    <div class="col-md-4">
+      <div class="p-3 border bg-light">
+        <label for="{{ question }}" class="form-label">{{ question }}</label>
+        <select class="form-select" id="{{ question }}" name="{{ question }}" required>
+          <option value="" selected disabled>Select team</option>
+          {% for team in teams %}
+          <option value="{{ team }}">{{ team }}</option>
+          {% endfor %}
         </select>
-        </div>
+      </div>
     </div>
     {% endfor %}
     {% csrf_token %}

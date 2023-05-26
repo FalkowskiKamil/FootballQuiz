@@ -20,18 +20,18 @@ def result(request, quiz_type):
 def profile(request, user_id):
     context={
         'profile': User.objects.get(id=user_id),
-        'result' : models.Quiz.objects.filter(user=user_id).order_by('score').reverse
+        'result' : models.Quiz.objects.filter(user=user_id).order_by('quiz_type', 'score').reverse
     }
     return render(request, template_name='quiz/profile.html', context=context)
 
 def ranking(request, quiz_type):
-    if quiz_type != 'All':
-        context={'quiz_type':quiz_type,
-                'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score').reverse
-                }
-    else:
+    if quiz_type == 'all':
         context={'quiz_type':"All",
                  'result': models.Quiz.objects.all().order_by('score').reverse}
+        
+    else:
+        context={'quiz_type':quiz_type,
+                'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score').reverse}
     return render(request, template_name='quiz/ranking.html', context=context)
 
 def quiz(request, quiz_type):
