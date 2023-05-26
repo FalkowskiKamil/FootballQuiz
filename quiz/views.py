@@ -45,6 +45,8 @@ def quiz(request, quiz_type):
     
 def squad_challange(request):
     data=squad_manager.info()
-    attack_players = data[data['position'] == 'Attack']['name'].tolist()
-    context={'attack': attack_players}
+    context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[:100],
+             'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[:100],
+             'defender':data.loc[data['position']=='Defender', 'name'].iloc[:100],
+             'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:100]}
     return render(request, template_name='quiz/squad.html', context=context)

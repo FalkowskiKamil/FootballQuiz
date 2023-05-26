@@ -1,21 +1,19 @@
 {% extends "quiz/index.html" %}
 {% block content %}
-<div style="position: relative; height: 100vh; overflow-y: scroll;">
+<div style="position: relative; height: calc(100vh - 56px);">
   <div class="border border-bottom border-danger" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
     <div class="d-flex justify-content-evenly mt-2">
         <div class="col-2">
-            <select class="form-select p-3" id="striker" name="striker" required>
-              <option value="" selected disabled>Select striker</option>
-            
+            <select class="form-select p-3" id="striker1" name="striker1" required>
+              <option value="" selected disabled>Striker</option>
               {% for player in attack %}
               <option value="{{ player }}">{{ player }}</option>
               {% endfor %}
             </select>
         </div>
         <div class="col-2">
-            <select class="form-select p-3" id="striker" name="striker" required>
-              <option value="" selected disabled>Select striker</option>
-            
+            <select class="form-select p-3" id="striker2" name="striker2" required>
+              <option value="" selected disabled>Striker</option>
               {% for player in attack %}
               <option value="{{ player }}">{{ player }}</option>
               {% endfor %}
@@ -23,41 +21,83 @@
         </div>
       </div>
       <div class="d-flex justify-content-evenly">
-
         <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
+            <select class="form-select p-3" id="middlefielder1" name="middlefielder1" required>
+            <option value="" selected disabled>Middlefielder</option>
+            {% for player in middlefielder %}
+            <option value="{{ player }}">{{ player }}</option>
+            {% endfor %}
+          </select>
         </div>
         <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
-        <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
-        <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
+          <select class="form-select p-3" id="middlefielder2" name="middlefielder2" required>
+          <option value="" selected disabled>Middlefielder</option>
+          {% for player in middlefielder %}
+          <option value="{{ player }}">{{ player }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-2">
+        <select class="form-select p-3" id="middlefielder3" name="middlefielder3" required>
+        <option value="" selected disabled>Middlefielder</option>
+        {% for player in middlefielder %}
+        <option value="{{ player }}">{{ player }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-2">
+      <select class="form-select p-3" id="middlefielder4" name="middlefielder4" required>
+      <option value="" selected disabled>Middlefielder</option>
+      {% for player in middlefielder %}
+      <option value="{{ player }}">{{ player }}</option>
+      {% endfor %}
+    </select>
+  </div>
       </div>
       <div class="d-flex justify-content-evenly align-items-center">
         <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
+          <select class="form-select p-3" id="defender1" name="defender1" required>
+          <option value="" selected disabled>Defender</option>
+          {% for player in defender %}
+          <option value="{{ player }}">{{ player }}</option>
+          {% endfor %}
+        </select>
         </div>
-        <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
-        <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
-        <div class="col-2">
-          <div class="p-3 border bg-light">Custom column padding</div>
-        </div>
+      <div class="col-2">
+        <select class="form-select p-3" id="defender2" name="defender2" required>
+        <option value="" selected disabled>Defender</option>
+        {% for player in defender %}
+        <option value="{{ player }}">{{ player }}</option>
+        {% endfor %}
+      </select>
+      </div>
+      <div class="col-2">
+        <select class="form-select p-3" id="defender3" name="defender3" required>
+        <option value="" selected disabled>Defender</option>
+        {% for player in defender %}
+        <option value="{{ player }}">{{ player }}</option>
+        {% endfor %}
+      </select>
+      </div>
+      <div class="col-2">
+        <select class="form-select p-3" id="defender4" name="defender4" required>
+        <option value="" selected disabled>Defender</option>
+        {% for player in defender %}
+        <option value="{{ player }}">{{ player }}</option>
+        {% endfor %}
+      </select>
+      </div>
       </div>
       <div class="d-flex justify-content-evenly align-items-end mb-2">
-        <div class="col-3">
-          <div class="p-3 border bg-light">Custom column padding</div>
+        <div class="col-2">
+          <select class="form-select p-3" id="goalkeeper" name="goalkeeper" required>
+          <option value="" selected disabled>Goalkeeper</option>
+          {% for player in goalkeeper %}
+          <option value="{{ player }}">{{ player }}</option>
+          {% endfor %}
+        </select>
         </div>
       </div>
     </div>
   </div>
-  
-
 {% endblock %}
