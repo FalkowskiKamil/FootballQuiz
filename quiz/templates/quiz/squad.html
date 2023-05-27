@@ -7,7 +7,7 @@
       <div class="d-flex justify-content-evenly mt-2">
         {% for _ in attack|slice:":2" %}
         <div>
-          <input class="p-2" list="striker" placeholder="striker" name="striker_{{ forloop.counter }}" id="striker_{{ forloop.counter }}" >
+          <input class="p-2" list="striker" placeholder="striker" name="striker_{{ forloop.counter }}" id="striker_{{ forloop.counter }}" required>
           <datalist id="striker">
             {% for player in attack %}
               <option value="{{ player }}">{{ player }}</option>
@@ -20,7 +20,7 @@
       <div class="d-flex justify-content-between">
         {% for _ in middlefielder|slice:":4" %}
           <div class="col-2">
-            <input class="p-2" style="max-width: 100%;" list="middlefielder" id="middlefielder_{{ forloop.counter }}" placeholder="middlefielder" name="middlefielder_{{ forloop.counter }}"  >
+            <input class="p-2" style="max-width: 100%;" list="middlefielder" id="middlefielder_{{ forloop.counter }}" placeholder="middlefielder" name="middlefielder_{{ forloop.counter }}"  required>
             <datalist id="middlefielder">
               {% for player in middlefielder %}
                 <option value="{{ player }}">{{ player }}</option>
@@ -33,7 +33,7 @@
       <div class="d-flex justify-content-between">
         {% for _ in defender|slice:":4" %}
           <div class="col-2">
-            <input class="p-2" style="max-width: 100%;" list="defender" id="defender_{{ forloop.counter }}" placeholder="defender" name="defender_{{ forloop.counter }}"  >
+            <input class="p-2" style="max-width: 100%;" list="defender" id="defender_{{ forloop.counter }}" placeholder="defender" name="defender_{{ forloop.counter }}" required >
             <datalist id="defender">
               {% for player in defender %}
                 <option value="{{ player }}">{{ player }}</option>
@@ -45,7 +45,7 @@
 
       <div class="d-flex justify-content-center">
         <div class="mb-2">
-          <input class="p-2" list="goalkeeper" placeholder="goalkeeper" name="goalkeeper"  >
+          <input class="p-2" list="goalkeeper" placeholder="goalkeeper" name="goalkeeper" required >
           <datalist id="goalkeeper">
             {% for player in goalkeeper %}
               <option value="{{ player }}">{{ player }}</option>
@@ -61,4 +61,40 @@
   <button class="btn btn-primary btn-block">Send</button>
 </div>
 </form>  
+
+<script>
+  // Function to check if any duplicate values exist in an array
+  function hasDuplicates(array) {
+    return (new Set(array)).size !== array.length;
+  }
+
+  // Function to validate the form before submission
+  function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
+
+    var selectedPlayers = [];
+
+    // Get all the selected players from the input fields
+    var playerInputs = document.getElementsByTagName('input');
+    for (var i = 0; i < playerInputs.length; i++) {
+      var playerInput = playerInputs[i];
+      if (playerInput.value.trim() !== '') {
+        selectedPlayers.push(playerInput.value.trim());
+      }
+    }
+
+    // Check if there are any duplicate players
+    if (hasDuplicates(selectedPlayers)) {
+      alert('Please select different players for each field.');
+      return false; // Stop further execution
+    }
+
+    // If no duplicates found, submit the form
+    event.target.submit();
+  }
+  
+  // Attach event listener to the form's submit event
+  document.getElementById('test').addEventListener('submit', validateForm);
+</script>
+
 {% endblock %}
