@@ -11,9 +11,16 @@ def main(request):
     return render(request, template_name='quiz/main.html', context=context)
     
 def result(request, quiz_type):
-    if len(list(request.POST.items())) >11:
-        score=squad_manager.get_quiz(quiz_type, request.POST.items())
+    if request.method == 'POST':
+        strikers = request.POST.getlist('striker[]')
+        midfielders = request.POST.getlist('middlefielder[]')
+        defenders = request.POST.getlist('defender[]')
+        goalkeeper = request.POST.get('goalkeeper')
+        answer=[strikers, midfielders, defenders, goalkeeper]
+    if len(answer) == 4:
+        score=squad_manager.get_quiz(quiz_type, answer)
     else:
+        return
         score=quiz_manager.get_quiz(quiz_type, request.POST.items())
     user = request.user if request.user.is_authenticated else None
     result= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
@@ -54,4 +61,11 @@ def squad_challange(request, quiz_type):
              'defender':data.loc[data['position']=='Defender', 'name'].iloc[:300].sample(frac=1),
              'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:300].sample(frac=1),
              'quiz_type':quiz_type,}
+    if request.method == 'POST':
+        strikers = request.POST.getlist('striker[]')
+        midfielders = request.POST.getlist('middlefielder[]')
+        defenders = request.POST.getlist('defender[]')
+        goalkeeper = request.POST.get('goalkeeper')
+        answer=[strikers, midfielders, defenders, goalkeeper]
+        result(request, answer)
     return render(request, template_name='quiz/squad.html', context=context)
