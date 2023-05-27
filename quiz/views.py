@@ -44,10 +44,17 @@ def quiz(request, quiz_type):
             'questions':data[4]}
     return render(request, template_name='quiz/quiz.html', context=context)
     
-def squad_challange(request):
+def squad_challange(request, quiz_type):
     data=squad_manager.info()
     context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[:100].sample(frac=1),
              'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[:100].sample(frac=1),
              'defender':data.loc[data['position']=='Defender', 'name'].iloc[:100].sample(frac=1),
              'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:100].sample(frac=1)}
     return render(request, template_name='quiz/squad.html', context=context)
+
+def squad_result(request, quiz_type):
+    score=squad_manager.get_quiz(quiz_type, request.POST.items())
+    user = request.user if request.user.is_authenticated else None
+    result= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
+    context={'score':result}
+    return render(request, template_name='quiz/result.html', context=context)

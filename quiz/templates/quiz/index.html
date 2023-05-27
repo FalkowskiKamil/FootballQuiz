@@ -35,10 +35,10 @@
                 Squad Challange
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' %}">Most Value</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' %}">Most Goal</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' %}">Most Assist</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' %}">Most Yellow</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='value' %}">Most Value</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='goal' %}">Most Goal</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='assist' %}">Most Assist</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='yellow' %}">Most Yellow</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">

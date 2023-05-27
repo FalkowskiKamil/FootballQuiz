@@ -1,9 +1,12 @@
 {% extends "quiz/index.html" %}
 {% block content %}
 <div style="position: relative; height: calc(100vh - 56px);">
-  <div style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
-    <div class="d-flex justify-content-evenly mt-2">
-        <div class="col-2">
+  
+  <form>
+  <div class="pt-2" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
+    
+        <div class="d-flex justify-content-evenly mt-2">
+      <div>
               <input class="p-2" list="striker" placeholder="striker" required>
               <datalist id="striker">
               {% for player in attack %}
@@ -12,7 +15,7 @@
             </select>
           </datalist>
         </div>
-        <div class="col-2">
+        <div>
           <input class="p-2" list="striker" placeholder="striker" required>
           <datalist id="striker">
             <option hidden="true">Choose Tagging</option>
@@ -25,9 +28,9 @@
       </datalist>
         </div>
       </div>
-<div class="d-flex justify-content-between w-100 m-2">
-        <div class="col-2">
-          <input class="p-2 m-2" list="middlefielder" placeholder="middlefielder" required>
+<div class="d-flex justify-content-between">
+        <div class="col-2 ms-2">
+          <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
           <datalist id="middlefielder">
           {% for player in middlefielder %}
           <option value="{{ player }}">{{ player }}</option>
@@ -36,7 +39,7 @@
       </datalist>
         </div>
         <div class="col-2">
-          <input class="p-2 m-2" list="middlefielder" placeholder="middlefielder" required>
+          <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
           <datalist id="middlefielder">
           {% for player in middlefielder %}
           <option value="{{ player }}">{{ player }}</option>
@@ -44,7 +47,7 @@
         </select>
       </div>
       <div class="col-2">
-        <input class="p-2 m-2" list="middlefielder" placeholder="middlefielder" required>
+        <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
         <datalist id="middlefielder">
         {% for player in middlefielder %}
         <option value="{{ player }}">{{ player }}</option>
@@ -52,20 +55,18 @@
       </select>
       </select>
     </div>
-    <div class="col-2">
-      <input class="p-2 m-2" list="middlefielder" placeholder="middlefielder" required>
+    <div class="col-2 me-2">
+      <input class="p-2 " style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
       <datalist id="middlefielder">
       {% for player in middlefielder %}
       <option value="{{ player }}">{{ player }}</option>
       {% endfor %}
     </select>
   </div>
-  <div>
-  </div>
 </div>
-      <div class="d-flex justify-content-between w-100 m-2">
-        <div class="col-2">
-          <input class="p-2 m-2" list="defender" placeholder="defender" required>
+      <div class="d-flex justify-content-between">
+        <div class="col-2 ms-2">
+          <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
           <datalist id="defender">
           {% for player in defender %}
           <option value="{{ player }}">{{ player }}</option>
@@ -73,42 +74,41 @@
         </select>
         </div>
       <div class="col-2">
-        <input class="p-2 m-2" list="defender" placeholder="defender" required>
-        <datalist id="defender">
+        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
+        <datalist id="defender" >
         {% for player in defender %}
         <option value="{{ player }}">{{ player }}</option>
         {% endfor %}
       </select>
       </div>
       <div class="col-2">
-        <input class="p-2 m-2" list="defender" placeholder="defender" required>
+        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
         <datalist id="defender">
         {% for player in defender %}
         <option value="{{ player }}">{{ player }}</option>
         {% endfor %}
       </select>
       </div>
-      <div class="col-2">
-        <input class="p-2 m-2" list="defender" placeholder="defender" required>
+      <div class="col-2 me-2">
+        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
         <datalist id="defender">
         {% for player in defender %}
         <option value="{{ player }}">{{ player }}</option>
         {% endfor %}
       </select>
       </div>
-      <div>
-        </div>
       </div>
-      <div class="d-flex justify-content-evenly align-items-end mb-2">
-        <div class="col-2">
+      <div class="d-flex justify-content-center">
+        <div class="mb-2">
           <input class="p-2" list="goalkeeper" placeholder="goalkeeper" required>
           <datalist id="goalkeeper">
           {% for player in goalkeeper %}
           <option value="{{ player }}">{{ player }}</option>
           {% endfor %}
         </select>
-        </div>
+      </div>
       </div>
     </div>
+  </form>  
   </div>
 {% endblock %}
