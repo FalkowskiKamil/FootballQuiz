@@ -1,114 +1,65 @@
 {% extends "quiz/index.html" %}
+
 {% block content %}
 <div style="position: relative; height: calc(100vh - 56px);">
-  
   <form>
-  <div class="pt-2" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
-    
-        <div class="d-flex justify-content-evenly mt-2">
-      <div>
-              <input class="p-2" list="striker" placeholder="striker" required>
-              <datalist id="striker">
-              {% for player in attack %}
+    <div class="pt-2" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="d-flex justify-content-evenly mt-2">
+        <div>
+          <input class="p-2" list="striker" placeholder="striker" required>
+          <datalist id="striker">
+            {% for player in attack %}
               <option value="{{ player }}">{{ player }}</option>
-              {% endfor %}
-            </select>
+            {% endfor %}
           </datalist>
         </div>
         <div>
           <input class="p-2" list="striker" placeholder="striker" required>
           <datalist id="striker">
-            <option hidden="true">Choose Tagging</option>
-            <option disabled="disabled" id='dupa' default="true">Choose Tagging</option>
-            
-          {% for player in attack %}
-          <option value="{{ player }}">{{ player }}</option>
-          {% endfor %}
-        </select>
-      </datalist>
+            {% for player in attack %}
+              <option value="{{ player }}">{{ player }}</option>
+            {% endfor %}
+          </datalist>
         </div>
       </div>
-<div class="d-flex justify-content-between">
-        <div class="col-2 ms-2">
-          <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
-          <datalist id="middlefielder">
-          {% for player in middlefielder %}
-          <option value="{{ player }}">{{ player }}</option>
-          {% endfor %}
-        </select>
-      </datalist>
-        </div>
-        <div class="col-2">
-          <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
-          <datalist id="middlefielder">
-          {% for player in middlefielder %}
-          <option value="{{ player }}">{{ player }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="col-2">
-        <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
-        <datalist id="middlefielder">
-        {% for player in middlefielder %}
-        <option value="{{ player }}">{{ player }}</option>
-        {% endfor %}
-      </select>
-      </select>
-    </div>
-    <div class="col-2 me-2">
-      <input class="p-2 " style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
-      <datalist id="middlefielder">
-      {% for player in middlefielder %}
-      <option value="{{ player }}">{{ player }}</option>
-      {% endfor %}
-    </select>
-  </div>
-</div>
+
       <div class="d-flex justify-content-between">
-        <div class="col-2 ms-2">
-          <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
-          <datalist id="defender">
-          {% for player in defender %}
-          <option value="{{ player }}">{{ player }}</option>
-          {% endfor %}
-        </select>
-        </div>
-      <div class="col-2">
-        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
-        <datalist id="defender" >
-        {% for player in defender %}
-        <option value="{{ player }}">{{ player }}</option>
+        {% for _ in middlefielder|slice:":4" %}
+          <div class="col-2">
+            <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" required>
+            <datalist id="middlefielder">
+              {% for player in middlefielder %}
+                <option value="{{ player }}">{{ player }}</option>
+              {% endfor %}
+            </datalist>
+          </div>
         {% endfor %}
-      </select>
       </div>
-      <div class="col-2">
-        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
-        <datalist id="defender">
-        {% for player in defender %}
-        <option value="{{ player }}">{{ player }}</option>
+
+      <div class="d-flex justify-content-between">
+        {% for _ in defender|slice:":4" %}
+          <div class="col-2">
+            <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
+            <datalist id="defender">
+              {% for player in defender %}
+                <option value="{{ player }}">{{ player }}</option>
+              {% endfor %}
+            </datalist>
+          </div>
         {% endfor %}
-      </select>
       </div>
-      <div class="col-2 me-2">
-        <input class="p-2" style="max-width: 100%;" list="defender" placeholder="defender" required>
-        <datalist id="defender">
-        {% for player in defender %}
-        <option value="{{ player }}">{{ player }}</option>
-        {% endfor %}
-      </select>
-      </div>
-      </div>
+
       <div class="d-flex justify-content-center">
         <div class="mb-2">
           <input class="p-2" list="goalkeeper" placeholder="goalkeeper" required>
           <datalist id="goalkeeper">
-          {% for player in goalkeeper %}
-          <option value="{{ player }}">{{ player }}</option>
-          {% endfor %}
-        </select>
-      </div>
+            {% for player in goalkeeper %}
+              <option value="{{ player }}">{{ player }}</option>
+            {% endfor %}
+          </datalist>
+        </div>
       </div>
     </div>
   </form>  
-  </div>
+</div>
 {% endblock %}
