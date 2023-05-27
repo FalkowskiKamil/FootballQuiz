@@ -4,5 +4,6 @@ def info():
     df=df.sort_values(by='highest_market_value_in_eur', ascending=False)
     return df
 
-def get_quiz(quiz_type):
-    return 
+def get_quiz(quiz_type, items):
+    score=10
+    return score
