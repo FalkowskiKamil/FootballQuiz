@@ -1,7 +1,7 @@
 {% extends "quiz/index.html" %}
 
 {% block content %}
-<form id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
+<form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
 <div style="position: relative; height: calc(100vh - 56px);">
     <div class="pt-2" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
       <div class="d-flex justify-content-evenly mt-2">
@@ -96,5 +96,4 @@
   // Attach event listener to the form's submit event
   document.getElementById('test').addEventListener('submit', validateForm);
 </script>
-
 {% endblock %}

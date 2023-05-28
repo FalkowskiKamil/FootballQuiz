@@ -15,7 +15,7 @@
   </small>
   {% endif %}
 
-  <form id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
+  <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     {% for question in questions %}
     <div class="col-md-4">
       <div class="p-3 border bg-light">

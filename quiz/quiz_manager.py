@@ -26,7 +26,7 @@ def get_info(type):
         questions = world_cup.questions
         return [nations, date.iloc[-1], date[0],None,  questions]
 
-def get_quiz(quiz_type, items):
+def get_quiz_result(quiz_type, items):
     score=0
     if quiz_type=='national':
         for i, answer in enumerate(items):
