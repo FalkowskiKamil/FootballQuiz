@@ -9,10 +9,10 @@ def value_squad(answer):
     score=0
     df= info()
     for position, players in answer.items():
-        position_df=df[df['position'] == str(position)]
+        position_df=df[df['position'] == position][:30].reset_index()
         for player in players:
-            if player in  position_df['name'].values[:30]:
-                score += 100 - position_df[position_df['name'] == player].index.item()
+            if player in  position_df['name'].values:
+                score+= 100- position_df.index[position_df['name'] == player].values[0]
     return score
 
 def goal_squad(answer):
@@ -40,5 +40,5 @@ def devide_position(players):
     players_dict['Attack'] = players.getlist('striker[]')
     players_dict['Midfield'] = players.getlist('middlefielder[]')
     players_dict['Defender'] = players.getlist('defender[]')
-    players_dict['Goalkeeper'] = players.get('goalkeeper')
+    players_dict['Goalkeeper'] = players.getlist('goalkeeper')
     return players_dict
