@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from . import quiz_manager, squad_manager, models
 from django.contrib.auth.models import User
-
 # Create your views here.
 def main(request):
     context = {}
@@ -50,9 +49,9 @@ def quiz(request, quiz_type):
     
 def squad_challange(request, quiz_type):
     data=squad_manager.info(quiz_type)
-    context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[:300],
-             'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[:300],
-             'defender':data.loc[data['position']=='Defender', 'name'].iloc[:300],
-             'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:300],
+    context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[:300].sample(frac=1),
+             'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[:300].sample(frac=1),
+             'defender':data.loc[data['position']=='Defender', 'name'].iloc[:300].sample(frac=1),
+             'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:300].sample(frac=1),
              'quiz_type':quiz_type,}
     return render(request, template_name='quiz/squad.html', context=context)

@@ -7,9 +7,11 @@ def info(type):
         df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'goals', 'position'])
         df =  df.sort_values(by='goals', ascending=False)
     elif type == 'assist squad':
-        return
+        df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'assists', 'position'])
+        df =  df.sort_values(by='assists', ascending=False)
     elif type == 'yellow squad':
-        return 
+        df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'yellow_cards', 'position'])
+        df =  df.sort_values(by='yellow_cards', ascending=False)
     return df
 
 
@@ -34,10 +36,24 @@ def goal_squad(answer):
     return score
 
 def assist_squad(answer):
-    return 5
+    score = 0
+    df = info('assist squad')
+    for position, players in answer.items():
+        position_df=df[df['position'] == position][:30].reset_index()
+        for player in players:
+            if player in position_df['name'].values:
+                score +=100-position_df.index[position_df['name'] == player].values[0]
+    return score
 
 def yellow_squad(answer):
-    return 5
+    score = 0
+    df = info('yellow squad')
+    for position, players in answer.items():
+        position_df=df[df['position'] == position][:30].reset_index()
+        for player in players:
+            if player in position_df['name'].values:
+                score +=100-position_df.index[position_df['name'] == player].values[0]
+    return score
 
 def get_squad_result(quiz_type, items):
     items = devide_position(items)
