@@ -2,6 +2,13 @@ from django.shortcuts import render
 from . import quiz_manager, squad_manager, models
 from django.contrib.auth.models import User
 # Create your views here.
+def main(request):
+    context={}
+    context_message = request.GET.get('context')
+    if context_message:
+        context['message'] = context_message
+    return render(request, template_name='quiz/main.html', context=context)
+
 def main_quiz(request):
     context = {}
     context_message = request.GET.get('context')

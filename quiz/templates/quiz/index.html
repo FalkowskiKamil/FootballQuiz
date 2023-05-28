@@ -9,7 +9,7 @@
   <body>
     <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main_quiz' %}">
+        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main' %}">
           <img src="/static/quiz/logo2.png" alt="Logo" width="35" class="d-inline-block align-text-top ">
           <span >Football Quiz</span>
         </a>
@@ -58,7 +58,7 @@
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">All of Type</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">Best of all</a></li>
               </ul>
             </li>
           </ul>
