@@ -15,56 +15,9 @@ def info(type):
     return df
 
 
-def value_squad(answer):
-    score=0
-    df= info('value squad')
-    for position, players in answer.items():
-        position_df=df[df['position'] == position][:30].reset_index()
-        for player in players:
-            if player in  position_df['name'].values:
-                score+= 100- position_df.index[position_df['name'] == player].values[0]
-    return score
-
-def goal_squad(answer):
-    score = 0
-    df = info('goal squad')
-    for position, players in answer.items():
-        position_df=df[df['position'] == position][:30].reset_index()
-        for player in players:
-            if player in position_df['name'].values:
-                score +=100-position_df.index[position_df['name'] == player].values[0]
-    return score
-
-def assist_squad(answer):
-    score = 0
-    df = info('assist squad')
-    for position, players in answer.items():
-        position_df=df[df['position'] == position][:30].reset_index()
-        for player in players:
-            if player in position_df['name'].values:
-                score +=100-position_df.index[position_df['name'] == player].values[0]
-    return score
-
-def yellow_squad(answer):
-    score = 0
-    df = info('yellow squad')
-    for position, players in answer.items():
-        position_df=df[df['position'] == position][:30].reset_index()
-        for player in players:
-            if player in position_df['name'].values:
-                score +=100-position_df.index[position_df['name'] == player].values[0]
-    return score
-
 def get_squad_result(quiz_type, items):
     items = devide_position(items)
-    if quiz_type == 'value squad':
-        return value_squad(items)
-    elif quiz_type == 'goal squad':
-        return goal_squad(items)
-    elif quiz_type == 'assist squad':
-        return assist_squad(items)
-    elif quiz_type == 'yellow squad':
-        return yellow_squad(items)
+    return calculate_score(items, info(quiz_type))
     
 def devide_position(players):
     players_dict={
@@ -73,3 +26,12 @@ def devide_position(players):
         'Defender': players.getlist('defender[]'),
         'Goalkeeper': players.getlist('goalkeeper')}
     return players_dict
+
+def calculate_score(answer, df):
+    score=0
+    for position, players in answer.items():
+        position_df=df[df['position'] == position][:30].reset_index()
+        for player in players:
+            if player in position_df['name'].values:
+                score +=100-position_df.index[position_df['name'] == player].values[0]
+    return score

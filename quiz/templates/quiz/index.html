@@ -9,7 +9,7 @@
   <body>
     <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main' %}">
+        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main_quiz' %}">
           <img src="/static/quiz/logo2.png" alt="Logo" width="35" class="d-inline-block align-text-top ">
           <span >Football Quiz</span>
         </a>
@@ -46,18 +46,19 @@
                 Rank
               </a>
               <ul class="dropdown-menu">
-                <li><span class="dropdown-header">Quiz Rank</span></li>
+                <li><span class="dropdown-header">Quiz Challenge</span></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Clubs</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Nations</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadiums</a></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cups</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">All</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><span class="dropdown-header">Squad Challenge</span></li>
                 <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='value squad' %}">Most Value</a></li>
-                <li><a class="dropdown-item" href="">Most score</a></li>
-                <li><a class="dropdown-item" href="">Most defensive</a></li>
-                <li><a class="dropdown-item" href="">Most aggresive</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='goal squad' %}">Most Score</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">All of Type</a></li>
               </ul>
             </li>
           </ul>
