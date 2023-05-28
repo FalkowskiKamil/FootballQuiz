@@ -1,13 +1,21 @@
 import pandas as pd
-def info():
-    df = pd.read_csv("quiz/data/squad/players.csv", usecols=['name','position', 'highest_market_value_in_eur'])
-    df=df.sort_values(by='highest_market_value_in_eur', ascending=False)
+def info(type):
+    if type == 'value squad':
+        df = pd.read_csv("quiz/data/squad/players.csv", usecols=['name','position', 'highest_market_value_in_eur'])
+        df=df.sort_values(by='highest_market_value_in_eur', ascending=False)
+    elif type == 'goal squad':
+        df = pd.read_csv("quiz/data/squad/appearances.csv", usecols=['player_id', 'goals', 'position'])
+        df =  df.groupby('player_id').sort_values(by='goals', ascending=False)
+    elif type == 'assist squad':
+        return
+    elif type == 'yellow squad':
+        return 
     return df
 
 
 def value_squad(answer):
     score=0
-    df= info()
+    df= info('value squad')
     for position, players in answer.items():
         position_df=df[df['position'] == position][:30].reset_index()
         for player in players:
@@ -36,9 +44,9 @@ def get_quiz(quiz_type, items):
         return yellow_squad(items)
     
 def devide_position(players):
-    players_dict=dict()
-    players_dict['Attack'] = players.getlist('striker[]')
-    players_dict['Midfield'] = players.getlist('middlefielder[]')
-    players_dict['Defender'] = players.getlist('defender[]')
-    players_dict['Goalkeeper'] = players.getlist('goalkeeper')
+    players_dict={
+        'Attack': players.getlist('striker[]'),
+        'Midfield': players.getlist('middlefielder[]'),
+        'Defender': players.getlist('defender[]'),
+        'Goalkeeper': players.getlist('goalkeeper')}
     return players_dict

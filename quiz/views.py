@@ -12,10 +12,10 @@ def main(request):
     
 def result(request, quiz_type):
     if request.method == 'POST':
-        score=squad_manager.get_quiz(quiz_type, request.POST)
-    else:
-        return
-        score=quiz_manager.get_quiz(quiz_type, request.POST.items())
+        if 'goalkeeper' in request.POST.keys():
+            score=squad_manager.get_quiz(quiz_type, request.POST)
+        else:
+            score=quiz_manager.get_quiz(quiz_type, request.POST.items())
     user = request.user if request.user.is_authenticated else None
     result= models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
     context={'score':result}
@@ -49,10 +49,10 @@ def quiz(request, quiz_type):
     return render(request, template_name='quiz/quiz.html', context=context)
     
 def squad_challange(request, quiz_type):
-    data=squad_manager.info()
-    context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[300:],
-             'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[300:],
-             'defender':data.loc[data['position']=='Defender', 'name'].iloc[300:],
-             'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[300],
+    data=squad_manager.info(quiz_type)
+    context={'attack': data.loc[data['position'] == 'Attack', 'name'].iloc[:300].sample(frac=1),
+             'middlefielder':data.loc[data['position'] == 'Midfield', 'name'].iloc[:300].sample(frac=1),
+             'defender':data.loc[data['position']=='Defender', 'name'].iloc[:300].sample(frac=1),
+             'goalkeeper':data.loc[data['position']=='Goalkeeper', 'name'].iloc[:300].sample(frac=1),
              'quiz_type':quiz_type,}
     return render(request, template_name='quiz/squad.html', context=context)
