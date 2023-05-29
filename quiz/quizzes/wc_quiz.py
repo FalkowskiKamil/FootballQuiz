@@ -5,6 +5,13 @@ df = pd.read_csv("quiz/data/wc/wc_detail.csv", usecols=['home_team', 'away_team'
 df['home_red_card'] = df['home_red_card'].replace([np.nan, np.inf], '').str.count('·').fillna(0).astype(int)
 df['away_red_card'] = df['away_red_card'].replace([np.nan, np.inf], '').str.count('·').fillna(0).astype(int)
 
+def info():
+    nations = df['home_team'].sort_values().unique
+    date = df['Date']
+    questions = ['Most apperance', 'Most Goals', 'Most Penalty Scored', \
+                 'Most conceded goal', 'Most Red card', 'Most Goal/Apperance']
+    return [nations, date.iloc[-1], date[0],None,  questions]
+
 def apperance(answer):
     home_match = df['home_team'].value_counts()
     away_match = df['away_team'].value_counts()
@@ -44,5 +51,10 @@ def goal_to_apperance(answer):
     rank_table = total_goals.divide(matches_played).sort_values(ascending=False)
     return calculate_score(answer[1], rank_table, top=30)
 
-functions=[apperance, score_goal, penalty_goal, conceded_goal, most_red, goal_to_apperance]
-questions = ['Most apperance', 'Most Goals', 'Most Penalty Scored', 'Most conceded goal', 'Most Red card', 'Most Goal/Apperance']
+wc_functions=[apperance, score_goal, penalty_goal, conceded_goal, most_red, goal_to_apperance]
+
+def result(items):
+    score = 0
+    for answer, function in zip(items, wc_functions):
+        score += function(answer)
+    return score

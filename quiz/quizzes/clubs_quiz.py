@@ -2,6 +2,14 @@ import pandas as pd
 from .calculator import calculate_score
 df = pd.read_csv("quiz/data/clubs/football_results.csv", encoding="ISO-8859-1", usecols=['Date','Competition','Team', 'Team_Score', 'Opponent', 'Opponent_Score', 'Home_Penalties', 'Away_Penalties', 'Team_Points', 'Opponent_Points' ])
 
+def info():
+    clubs = df['Team'].sort_values().unique
+    date = df['Date'].sort_values()
+    competition = df['Competition'].sort_values().unique
+    question = ['Most Home Goal', 'Most Away Goal', "Most Goal",\
+                "Most Penalty Scored", 'Most Won', 'Most Draw']
+    return [clubs, date[0], date.iloc[-1], competition, question]
+
 def home_goal(answer):
     home_team = df.groupby('Team')
     rank_table = home_team['Team_Score'].count().sort_values(ascending=False)
@@ -38,5 +46,11 @@ def most_draw(answer):
     rank_table = home_draw.add(away_draw, fill_value=0)
     return calculate_score(answer[1], rank_table, 400)
     
-question = ['Most Home Goal', 'Most Away Goal', "Most Goal", "Most Penalty Scored", 'Most Won', 'Most Draw']
 clubs_functions = [home_goal, away_goal, most_goal, most_penalty, most_won, most_draw]
+
+def result(items):
+    score=0
+    for i, answer in enumerate(items):
+        if i < len(clubs_functions):
+            score += clubs_functions[i](answer)
+    return score

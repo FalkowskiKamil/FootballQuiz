@@ -3,17 +3,20 @@ def info(type):
     if type == 'value squad':
         df = pd.read_csv("quiz/data/squad/players.csv", usecols=['name','position', 'highest_market_value_in_eur'])
         df=df.sort_values(by='highest_market_value_in_eur', ascending=False)
+    
     elif type == 'goal squad':
         df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'goals', 'position'])
         df =  df.sort_values(by='goals', ascending=False)
+    
     elif type == 'assist squad':
         df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'assists', 'position'])
         df =  df.sort_values(by='assists', ascending=False)
+    
     elif type == 'yellow squad':
         df = pd.read_csv("quiz/data/squad/merged_appearances.csv", usecols=['name', 'yellow_cards', 'position'])
         df =  df.sort_values(by='yellow_cards', ascending=False)
+    
     return df
-
 
 def get_squad_result(quiz_type, items):
     items = devide_position(items)
