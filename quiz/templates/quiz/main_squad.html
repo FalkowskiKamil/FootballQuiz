@@ -1,35 +1,36 @@
 {% extends "quiz/index.html" %}
 {% block content %}
 
-<a href="{% url 'quiz:squad_challange' quiz_type='value squad' %}" class="bg-image align-items-center" style="background-image: url('/static/quiz/value_squad.jpg'); background-position: 58.33325% center; background-repeat: no-repeat; background-size: 100% 100%; height: 350px; display: block; text-decoration: none; margin-top: -1rem;">
-  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.6);">
+<a href="{% url 'quiz:squad_challange' quiz_type='value squad' %}" class="banner-link value-squad">
+  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
     <div class="h-auto">
-      <h1 class="text-white m-2 text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Most Valued Team</h1>
+      <h1 class="text-white m-2 text-center banner-title">Most Valued Team</h1>
     </div>
-    <p class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.8); padding: 1rem;">
+    <p class="text-center text-white banner-text">
       <strong>Assemble your ultimate squad of the most valuable football players!</strong> <br>
       In this challenge, you have the task of selecting the 11 most valuable players from a list of 1200 footballers, one for each position on the field. Your goal is to create a dream team that consists of the most highly valued players in the world. <br>
-      Consider their skills, performance, and market value to make strategic decisions for each position. Can you create a lineup that showcases the best of the best? Prepare to test your knowledge and build the ultimate squad of football superstars!</p>
+      Consider their skills, performance, and market value to make strategic decisions for each position. Can you create a lineup that showcases the best of the best? Prepare to test your knowledge and build the ultimate squad of football superstars!
+    </p>
   </div>
 </a>
-<a href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}" class="bg-image align-items-center" style="background-image: url('/static/quiz/goal_squad.jpg'); background-position: 58.33325% center; background-repeat: no-repeat; height: 350px; display: block; text-decoration: none;">
-  <div class="border-top border-1 border-danger mask h-100 d-flex flex-column justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.6);">
+<a href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}" class="banner-link goal-squad">
+  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">    
     <div class="h-auto">
-      <h1 class="text-white m-2 mb-4 text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Most Highest-scoring Team</h1>
+      <h1 class="text-white m-2 text-center banner-title">Most Highest-scoring Team</h1>
     </div>
-    <p class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.8); padding: 1rem;">
+    <p class="text-center text-white banner-text">
       <strong>Assemble your ultimate squad of the highest-scoring football players!</strong> <br>
       In this challenge, your task is to select the 11 highest-scoring players for each position on the field from a list of 1200 footballers. Your goal is to create a dream team that consists of the most prolific goal scorers in the world. <br>
       Consider their scoring records, playing style, and goal-scoring abilities to make strategic decisions for each position. Can you create a lineup that showcases the best of the best when it comes to finding the back of the net? Get ready to test your knowledge and build the ultimate squad of football's top goal scorers!
     </p>
   </div>
 </a>
-<a href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}" class="bg-image align-items-center" style="background-image: url('/static/quiz/assist_squad.jpg'); background-position: 58.33325% center; background-repeat: no-repeat; background-size: 100% 100%; height: 350px; display: block; text-decoration: none;">
-  <div class="border-top border-1 border-danger mask h-100 d-flex flex-column justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.6);">
+<a href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}" class="banner-link assist-squad">
+  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
     <div class="h-auto">
-      <h1 class="text-white m-2 mb-4 text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Most Assist Team</h1>
+      <h1 class="text-white m-2 text-center banner-title">Most Assist Team</h1>
     </div>
-    <p class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.8); padding: 1rem;">
+    <p class="text-center text-white banner-text">
       <strong>Create your ultimate squad of the top assist providers!</strong> <br>
       In this challenge, your mission is to assemble the 11 players who are the best assist providers for each position on the field from a list of 1200 footballers. Your objective is to construct a dream team consisting of the most prolific creators of goals in the world of football. <br>
       Consider their assist records, vision, passing abilities, and playmaking skills to make strategic decisions for each position. Can you build a lineup that highlights the finest assist providers? Prepare to put your knowledge to the test and form the ultimate squad of football's top playmakers!
@@ -37,11 +38,12 @@
   </div>
 </a>
 
-<a href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}" class="bg-image align-items-center" style="background-image: url('/static/quiz/yellow_squad.jpg'); background-position: 58.33325% center; background-repeat: no-repeat; height: 350px; display: block; text-decoration: none;">
-  <div class="border-top border-1 border-danger mask h-100 d-flex flex-column justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.6);">
+<a href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}" class="banner-link yellow-squad">
+  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
     <div class="h-auto">
-      <h1 class="text-white m-2 mb-4 text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Most Yellow Team</h1>
-    </div><p class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.8); padding: 1rem;">
+      <h1 class="text-white m-2 text-center banner-title">Most Yellow Team</h1>
+    </div>
+    <p class="text-center text-white banner-text">
       <strong>Form your ultimate squad of players with the most yellow cards!</strong> <br>
       In this challenge, you have the task of selecting the 11 players who have received the most yellow cards for each position on the field from a list of 1200 footballers. Your goal is to create a team consisting of the players who are most notorious for their disciplinary record in the world of football. <br>
       Consider their yellow card statistics, aggressiveness, and playing style to make strategic decisions for each position. Can you assemble a lineup that showcases the most caution-prone players? Prepare to test your knowledge and build the ultimate squad of football's top card collectors!

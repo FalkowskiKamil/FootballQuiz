@@ -2,8 +2,8 @@
 
 {% block content %}
 <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
-<div style="position: relative; height: calc(100vh - 56px);">
-    <div class="pt-2" style="background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; height: 100%; width: 100%; background-size: cover; position: absolute; display: flex; flex-direction: column; justify-content: space-between;">
+<div class="div-pitch">
+    <div class="pt-2 background-pitch">
       <div class="d-flex justify-content-evenly mt-2">
         {% for _ in attack|slice:":2" %}
         <div>
@@ -20,7 +20,7 @@
       <div class="d-flex justify-content-between">
         {% for _ in middlefielder|slice:":4" %}
           <div class="col-2">
-            <input class="p-2" style="max-width: 100%;" list="middlefielder" placeholder="middlefielder" name="middlefielder[]"  required multiple>
+            <input class="p-2 w-100"  list="middlefielder" placeholder="middlefielder" name="middlefielder[]"  required multiple>
             <datalist id="middlefielder">
               {% for player in middlefielder %}
                 <option value="{{ player }}">{{ player }}</option>
@@ -33,7 +33,7 @@
       <div class="d-flex justify-content-between">
         {% for _ in defender|slice:":4" %}
           <div class="col-2">
-            <input class="p-2" style="max-width: 100%;" list="defender"  placeholder="defender" name="defender[]" required multiple>
+            <input class="p-2 w-100" list="defender"  placeholder="defender" name="defender[]" required multiple>
             <datalist id="defender">
               {% for player in defender %}
                 <option value="{{ player }}">{{ player }}</option>
@@ -61,39 +61,4 @@
   <button class="btn btn-primary btn-block">Send</button>
 </div>
 </form>  
-
-<script>
-  // Function to check if any duplicate values exist in an array
-  function hasDuplicates(array) {
-    return (new Set(array)).size !== array.length;
-  }
-
-  // Function to validate the form before submission
-  function validateForm(event) {
-    event.preventDefault(); // Prevent form submission
-
-    var selectedPlayers = [];
-
-    // Get all the selected players from the input fields
-    var playerInputs = document.getElementsByTagName('input');
-    for (var i = 0; i < playerInputs.length; i++) {
-      var playerInput = playerInputs[i];
-      if (playerInput.value.trim() !== '') {
-        selectedPlayers.push(playerInput.value.trim());
-      }
-    }
-
-    // Check if there are any duplicate players
-    if (hasDuplicates(selectedPlayers)) {
-      alert('Please select different players for each field.');
-      return false; // Stop further execution
-    }
-
-    // If no duplicates found, submit the form
-    event.target.submit();
-  }
-  
-  // Attach event listener to the form's submit event
-  document.getElementById('test').addEventListener('submit', validateForm);
-</script>
 {% endblock %}
