@@ -10,18 +10,10 @@ def main(request):
     return render(request, template_name='quiz/main.html', context=context)
 
 def main_quiz(request):
-    context = {}
-    context_message = request.GET.get('context')
-    if context_message:
-        context['message'] = context_message
-    return render(request, template_name='quiz/main_quiz.html', context=context)
+    return render(request, template_name='quiz/main_quiz.html')
 
 def main_squad(request):
-    context= {}
-    context_message = request.GET.get('context')
-    if context_message:
-        context['message'] = context_message
-    return render(request, template_name='quiz/main_squad.html', context=context)
+    return render(request, template_name='quiz/main_squad.html')
     
 def result(request, quiz_type):
     if request.method == 'POST':
@@ -45,7 +37,6 @@ def ranking(request, quiz_type):
     if quiz_type == 'all':
         context={'quiz_type':"All",
                  'result': models.Quiz.objects.all().order_by('score').reverse}
-        
     else:
         context={'quiz_type':quiz_type,
                 'result': models.Quiz.objects.filter(quiz_type=quiz_type).order_by('score').reverse}
