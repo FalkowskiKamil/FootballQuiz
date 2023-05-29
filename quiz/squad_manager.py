@@ -19,10 +19,10 @@ def info(type):
     return df
 
 def get_squad_result(quiz_type, items):
-    items = devide_position(items)
-    return calculate_score(items, info(quiz_type))
+    return calculate_score(devide_position(items), info(quiz_type))
     
 def devide_position(players):
+    #Divide posted list for each position
     players_dict={
         'Attack': players.getlist('striker[]'),
         'Midfield': players.getlist('middlefielder[]'),
@@ -33,6 +33,7 @@ def devide_position(players):
 def calculate_score(answer, df):
     score=0
     for position, players in answer.items():
+        #Get data of 30 best matches
         position_df=df[df['position'] == position][:30].reset_index()
         for player in players:
             if player in position_df['name'].values:

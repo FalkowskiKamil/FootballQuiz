@@ -1,27 +1,29 @@
 {% extends "quiz/index.html" %}
 {% block content %}
+
 <a href="{% url 'quiz:main_quiz' %}" class="banner-link main-quiz">
   <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-      <div class="h-auto">
-        <h1 class="text-white m-2 text-center banner-title">Quiz</h1>
-      </div>
-      <p class="text-center text-white banner-text">
-        <strong>Test your knowledge with an exciting quiz challenge!</strong> <br>
-        Embark on a journey to showcase your expertise in the realm of football.<br>
-        This quiz challenge covers a wide range of competitions, including Clubs, National Teams, Stadiums, and the World Cup. <br>
-      </p>
+    <div class="h-auto">
+      <h1 class="text-white m-2 text-center banner-title">Quiz</h1>
     </div>
-  </a>
-  <a href="{% url 'quiz:main_squad' %}" class="banner-link main-squad">
+    <p class="text-center text-white banner-text">
+      <strong>Test your knowledge with an exciting quiz challenge!</strong> <br>
+      Embark on a journey to showcase your expertise in the realm of football.<br>
+      This quiz challenge covers a wide range of competitions, including Clubs, National Teams, Stadiums, and the World Cup. <br>
+    </p>
+  </div>
+</a>
+
+<a href="{% url 'quiz:main_squad' %}" class="banner-link main-squad">
   <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-      <div class="h-auto">
-       <h1 class="text-white m-2 text-center banner-title">Squad</h1>
-      </div>
-      <p class="text-center text-white banner-text">
-        <strong>Test your knowledge about football squads!</strong> <br>
-        This squad challenge allows you to explore various aspects of different football teams. <br>
-        Choose from different types of squads, including the value squad, goal squad, assist squad, and yellow card squad. <br>
-      </p>
+    <div class="h-auto">
+      <h1 class="text-white m-2 text-center banner-title">Squad</h1>
     </div>
-  </a>
+    <p class="text-center text-white banner-text">
+      <strong>Test your knowledge about football squads!</strong> <br>
+      This squad challenge allows you to explore various aspects of different football teams. <br>
+      Choose from different types of squads, including the value squad, goal squad, assist squad, and yellow card squad. <br>
+    </p>
+  </div>
+</a>
 {% endblock %}

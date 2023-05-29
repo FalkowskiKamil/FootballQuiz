@@ -1,61 +1,61 @@
 {% extends "quiz/index.html" %}
 
 {% block content %}
-{% if result.0 %}
-<div class="container">
-  <h1 class="mt-2 text-center">Ranking of Quiz: {{ quiz_type|title }}</h1>
-  <div class="card mt-4">
-    <div class="card-body">
-      <h2 class="card-title">Best Score:</h2>
-      <p class="card-text">
-        {{ result.first.score }} by 
-        <a href="{% url 'quiz:profile' user_id=result.first.user.id %}">{{ result.first.user.username }}</a>
-        on {{ result.first.date }}
-        {% if result.first.quiz_type != quiz_type %}
-          in {{ result.first.quiz_type }}
-        {% endif %}
-      </p>
-    </div>
-  </div>
-{% endif %}
-  {% if result.1 %}
-  <div class="card mt-4">
-    <div class="card-body">
-      <h2 class="card-title">Second:</h2>
-      <p class="card-text">
-        {{ result.1.score }} by 
-        {% if result.1.user.username %}
-          <a href="{% url 'quiz:profile' user_id=result.1.user.id %}">{{ result.1.user.username }}</a>
-        {% else %}
-          Not registered user
-        {% endif %}
-        on {{ result.1.date }}
-        {% if result.1.quiz_type != quiz_type %}
-          in {{ result.1.quiz_type }}
-        {% endif %}
-      </p>
-    </div>
-  </div>
-  {% endif %}
+  {% if result.0 %}
+    <div class="container">
+      <h1 class="mt-2 text-center">Ranking of Quiz: {{ quiz_type|title }}</h1>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">Best Score:</h2>
+          <p class="card-text">
+            {{ result.first.score }} by
+            <a href="{% url 'quiz:profile' user_id=result.first.user.id %}">{{ result.first.user.username }}</a>
+            on {{ result.first.date }}
+            {% if result.first.quiz_type != quiz_type %}
+              in {{ result.first.quiz_type }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    {% endif %}
+    {% if result.1 %}
+      <div class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">Second:</h2>
+          <p class="card-text">
+            {{ result.1.score }} by
+            {% if result.1.user.username %}
+              <a href="{% url 'quiz:profile' user_id=result.1.user.id %}">{{ result.1.user.username }}</a>
+            {% else %}
+              Not registered user
+            {% endif %}
+            on {{ result.1.date }}
+            {% if result.1.quiz_type != quiz_type %}
+              in {{ result.1.quiz_type }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    {% endif %}
 
-  {% if result.2 %}
-  <div class="card mt-4">
-    <div class="card-body">
-      <h2 class="card-title">Third:</h2>
-      <p class="card-text">
-        {{ result.2.score }} by 
-        {% if result.2.user.username %}
-          <a href="{% url 'quiz:profile' user_id=result.2.user.id %}">{{ result.2.user.username }}</a>
-        {% else %}
-          Unregistered
-        {% endif %}
-        on {{ result.2.date }}
-        {% if result.2.quiz_type != quiz_type %}
-          in {{ result.2.quiz_type }}
-        {% endif %}
-      </p>
-    </div>
+    {% if result.2 %}
+      <div class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">Third:</h2>
+          <p class="card-text">
+            {{ result.2.score }} by
+            {% if result.2.user.username %}
+              <a href="{% url 'quiz:profile' user_id=result.2.user.id %}">{{ result.2.user.username }}</a>
+            {% else %}
+              Unregistered
+            {% endif %}
+            on {{ result.2.date }}
+            {% if result.2.quiz_type != quiz_type %}
+              in {{ result.2.quiz_type }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    {% endif %}
   </div>
-  {% endif %}
-</div>
 {% endblock %}

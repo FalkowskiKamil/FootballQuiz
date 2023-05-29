@@ -1,107 +1,118 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Football Quiz</title>
-    <link rel="stylesheet" type="text/css" href="/static/quiz/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main' %}">
-          <img src="/static/quiz/logo2.png" alt="Logo" width="35" class="d-inline-block align-text-top ">
-          <span >Football Quiz</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Quiz
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='clubs' %}">Club</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='national'%}">National</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='stadium' %}">Stadium</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='wc' %}">World Cup</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Squad Challange
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='value squad' %}">Most Value</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}">Most Goal</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}">Most Assist</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}">Most Yellow</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rank
-              </a>
-              <ul class="dropdown-menu">
-                <li><span class="dropdown-header">Quiz Challenge</span></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Clubs</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Nations</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadiums</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cups</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><span class="dropdown-header">Squad Challenge</span></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='value squad' %}">Most Value</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='goal squad' %}">Most Score</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">Best of all</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Football Quiz</title>
+  <link rel="stylesheet" type="text/css" href="/static/quiz/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mb-1 mt-1 mb-lg-0" href="{% url 'quiz:main' %}">
+        <img src="/static/quiz/logo2.png" alt="Logo" width="35" class="d-inline-block align-text-top ">
+        <span>Football Quiz</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Quiz
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='clubs' %}">Club</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='national'%}">National</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='stadium' %}">Stadium</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='wc' %}">World Cup</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Squad Challenge
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='value squad' %}">Most Value</a>
+              </li>
+              <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}">Most Goal</a>
+              </li>
+              <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}">Most
+                  Assist</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}">Most
+                  Yellow</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Rank
+            </a>
+            <ul class="dropdown-menu">
+              <li><span class="dropdown-header">Quiz Challenge</span></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Clubs</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Nations</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadiums</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cups</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><span class="dropdown-header">Squad Challenge</span></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='value squad' %}">Most Value</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='goal squad' %}">Most Score</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">Best of all</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link fw-bolder text-danger" href="{% url 'quiz:profile' user_id=user.id %}">{{user.username}}</a>
-            </li>
+          </li>
           <li class="nav-item">
             <a class="nav-link fw-bolder text-danger" href="{% url 'user:logout_request' %}">Logout</a>
-            </li>
+          </li>
           {% else %}
           <li class="nav-item">
             <a class="nav-link fw-bolder text-danger" href="{% url 'user:login_request' %}">Login</a>
-            </li>
+          </li>
           <li class="nav-item">
             <a class="nav-link fw-bolder text-danger" href="{% url 'user:register' %}">Register</a>
-            </li>
+          </li>
           {% endif %}
-          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if message %}
+  <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+    <span>{{ message }}</span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+  {% block content %}
+  {% endblock %}
+  <footer>
+    <div class="container-fluid mt-2">
+      <div class="row">
+        <div class="col text-center">
+          <p class="text-muted">© 2023 Football Quiz. All rights reserved.</p>
+          <p class="text-muted">Created by Kamil Falkowski</p>
         </div>
       </div>
-    </nav>
-    {% if message %}
-    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
-      <span>{{ message }}</span>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    {% endif %}
-    {% block content %}
-    {% endblock %}
-<footer>
-  <div class="container-fluid mt-2">
-    <div class="row">
-      <div class="col text-center">
-        <p class="text-muted">© 2023 Football Quiz. All rights reserved.</p>
-        <p class="text-muted">Created by Kamil Falkowski</p>
-      </div>
-    </div>
-  </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="/static/quiz/script.js"></script>
-  </body>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="/static/quiz/script.js"></script>
+</body>
 </html>

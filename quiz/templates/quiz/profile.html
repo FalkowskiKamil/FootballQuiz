@@ -1,6 +1,6 @@
 {% extends "quiz/index.html" %}
-
 {% block content %}
+
 <div class="container">
   <h1 class="mt-2 text-center">Best result for User: {{ profile }}</h1>
   {% regroup result by quiz_type as quiz_results %}
