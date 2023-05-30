@@ -4,14 +4,16 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('quiz', '0001_initial'),
+        ("quiz", "0001_initial"),
     ]
 
     operations = [
         migrations.AddConstraint(
-            model_name='quiz',
-            constraint=models.UniqueConstraint(fields=('user', 'quiz_type', 'score'), name='unique_score_user_quiz_type'),
+            model_name="quiz",
+            constraint=models.UniqueConstraint(
+                fields=("user", "quiz_type", "score"),
+                name="unique_score_user_quiz_type",
+            ),
         ),
     ]
