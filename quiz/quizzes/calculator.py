@@ -1,4 +1,4 @@
-def calculate_score(answer, rank_table, equalizer = 0, top=100):
+def calculate_score(answer, rank_table, top=100):
     #Checking if answer are in database
     if answer not in rank_table:
         return 0
@@ -7,5 +7,5 @@ def calculate_score(answer, rank_table, equalizer = 0, top=100):
         if rank_table.index.get_loc(answer) > top:
             score=0
         else:
-            score=len(rank_table) - rank_table.index.get_loc(answer) - equalizer
+            score= 100 - rank_table.index.get_loc(answer)
         return score
