@@ -15,13 +15,13 @@ class Quiz(models.Model):
     quiz_type = models.CharField(max_length=20)
     score = models.IntegerField()
     date = models.DateTimeField(default=timezone.now)
-    __table_args__ = (UniqueConstraint('score', 'user', 'quiz_type', name='unique_score_user_quiz_type'),)
+    __table_args__ = (UniqueConstraint("score", "user", "quiz_type", name="unique_score_user_quiz_type"),)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['user', 'quiz_type', 'score'],
-                name='unique_score_user_quiz_type'
+                fields=["user", "quiz_type", "score"],
+                name="unique_score_user_quiz_type"
             )
         ]
 

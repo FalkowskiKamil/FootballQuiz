@@ -3,9 +3,9 @@ from django.urls import reverse
 
 class UserAuthTestCase(TestCase):
     def setUp(self):
-        self.register_url = reverse('user:register')
-        self.login_url = reverse('user:login_request')
-        self.logout_url = reverse('user:logout_request')
+        self.register_url = reverse("user:register")
+        self.login_url = reverse("user:login_request")
+        self.logout_url = reverse("user:logout_request")
 
     def test_register(self):
         response = self.client.get(self.register_url)
