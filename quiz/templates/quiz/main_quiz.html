@@ -1,66 +1,90 @@
 {% extends "quiz/index.html" %}
 {% block content %}
 
-<a href="{% url 'quiz:quiz' quiz_type='clubs' %}" class="banner-link quiz-clubs">
-  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="h-auto">
-      <h1 class="text-white m-2 text-center banner-title">Clubs</h1>
-    </div>
-    <p class="text-center text-white banner-text">
-      <strong>Test your knowledge about football clubs!</strong> <br>
-      From August 31, 2002, to December 31, 2022, <br>
-      This quiz covers top leagues and competitions like <br>
-      Bundesliga, FA Cup, Ligue 1, Premier League, La Liga, Serie A, UEFA Champions League, and UEFA Europa League.<br>
-      Explore the rich history, rivalries, and achievements of iconic clubs. <br>
-      Challenge yourself and prove your expertise in the world of football clubs!<br>
-    </p>
-  </div>
-</a>
+<div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+    <li data-bs-target="#carouselId" data-bs-slide-to="3" aria-label="Fourth slide"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
 
-<a href="{% url 'quiz:quiz' quiz_type='national' %}" class="banner-link quiz-national">
-  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="h-auto">
-      <h1 class="text-white m-2 text-center banner-title">National</h1>
+    <div class="carousel-item active">
+    <a href="{% url 'quiz:quiz' quiz_type='wc' %}" class="banner-link quiz-wc">
+      <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="h-auto">
+          <h1 class="text-white m-2 text-center banner-title">World Cup</h1>
+        </div>
+        <p class="text-center text-white banner-text">
+          <strong>Test your knowledge about the FIFA World Cup!</strong> <br>
+          From July 13, 1930, to December 31, 2022, <br>
+          This quiz covers the prestigious FIFA World Cup tournament. <br>
+          Discover fascinating facts about the tournament's rich history, memorable moments, and legendary players. <br>
+          Challenge yourself with questions about the most appearances, top goal scorers, winning teams, and iconic matches. <br>
+          Prove your expertise in the world of the FIFA World Cup and become a true connoisseur of the beautiful game!<br>
+        </p>
+      </div>
+    </a>
     </div>
-    <p class="text-center text-white banner-text">
-      <strong>Test your knowledge about national football teams!</strong> <br>
-      From November 30, 1872, to March 29, 2023, <br>
-      This quiz covers national team competitions from all around the world. <br>
-      From the historic matches of the FIFA World Cup to regional tournaments like: <br>
-      the UEFA European Championship, CONMEBOL Copa America, AFC Asian Cup, CAF Africa Cup of Nations, and CONCACAF Gold Cup,<br>
-      Explore the rich history, rivalries, and achievements of national football teams. <br>
-      Challenge yourself and prove your expertise in the world of international football competitions!<br>
-    </p>
-  </div>
-</a>
-
-<a href="{% url 'quiz:quiz' quiz_type='stadium' %}" class="banner-link quiz-stadium">
-  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="h-auto">
-      <h1 class="text-white m-2 text-center banner-title">Stadium</h1>
+    <div class="carousel-item">
+      <a href="{% url 'quiz:quiz' quiz_type='stadium' %}" class="banner-link quiz-stadium">
+        <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
+          <div class="h-auto">
+            <h1 class="text-white m-2 text-center banner-title">Stadium</h1>
+          </div>
+          <p class="text-center text-white banner-text">
+            <strong>Test your knowledge about stadiums around the world!</strong> <br>
+            This quiz covers some of the biggest and most iconic stadiums from various countries. <br>
+            Discover which country boasts the most big stadiums and learn about the rich history and cultural significance of these sporting arenas. <br>
+            Challenge yourself and prove your expertise in the world of stadiums and their significance in the realm of sports!<br>
+          </p>
+        </div>
+      </a>
     </div>
-    <p class="text-center text-white banner-text">
-      <strong>Test your knowledge about stadiums around the world!</strong> <br>
-      This quiz covers some of the biggest and most iconic stadiums from various countries. <br>
-      Discover which country boasts the most big stadiums and learn about the rich history and cultural significance of these sporting arenas. <br>
-      Challenge yourself and prove your expertise in the world of stadiums and their significance in the realm of sports!<br>
-    </p>
-  </div>
-</a>
-
-<a href="{% url 'quiz:quiz' quiz_type='wc' %}" class="banner-link quiz-wc">
-  <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="h-auto">
-      <h1 class="text-white m-2 text-center banner-title">World Cup</h1>
+    <div class="carousel-item">
+      <a href="{% url 'quiz:quiz' quiz_type='national' %}" class="banner-link quiz-national">
+        <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
+          <div class="h-auto">
+            <h1 class="text-white m-2 text-center banner-title">National</h1>
+          </div>
+          <p class="text-center text-white banner-text">
+            <strong>Test your knowledge about national football teams!</strong> <br>
+            From November 30, 1872, to March 29, 2023, <br>
+            This quiz covers national team competitions from all around the world. <br>
+            From the historic matches of the FIFA World Cup to regional tournaments like: <br>
+            the UEFA European Championship, CONMEBOL Copa America, AFC Asian Cup, CAF Africa Cup of Nations, and CONCACAF Gold Cup,<br>
+            Explore the rich history, rivalries, and achievements of national football teams. <br>
+            Challenge yourself and prove your expertise in the world of international football competitions!<br>
+          </p>
+        </div>
+      </a>
     </div>
-    <p class="text-center text-white banner-text">
-      <strong>Test your knowledge about the FIFA World Cup!</strong> <br>
-      From July 13, 1930, to December 31, 2022, <br>
-      This quiz covers the prestigious FIFA World Cup tournament. <br>
-      Discover fascinating facts about the tournament's rich history, memorable moments, and legendary players. <br>
-      Challenge yourself with questions about the most appearances, top goal scorers, winning teams, and iconic matches. <br>
-      Prove your expertise in the world of the FIFA World Cup and become a true connoisseur of the beautiful game!<br>
-    </p>
+    <div class="carousel-item">
+      <a href="{% url 'quiz:quiz' quiz_type='clubs' %}" class="banner-link quiz-clubs">
+        <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
+          <div class="h-auto">
+            <h1 class="text-white m-2 text-center banner-title">Clubs</h1>
+          </div>
+          <p class="text-center text-white banner-text">
+            <strong>Test your knowledge about football clubs!</strong> <br>
+            From August 31, 2002, to December 31, 2022, <br>
+            This quiz covers top leagues and competitions like <br>
+            Bundesliga, FA Cup, Ligue 1, Premier League, La Liga, Serie A, UEFA Champions League, and UEFA Europa League.<br>
+            Explore the rich history, rivalries, and achievements of iconic clubs. <br>
+            Challenge yourself and prove your expertise in the world of football clubs!<br>
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
-</a>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
 {% endblock %}
