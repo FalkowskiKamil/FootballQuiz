@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import login, logout, authenticate
+from manage import configure_logger
+
+logger = configure_logger()
 
 
 def register(request):
@@ -25,6 +28,7 @@ def register(request):
                 password=password,
             )
             login(request, user)
+            logger.debug(f"Register user: {username}")
             context = {"message": "Registration successful"}
             redirect_url = reverse("quiz:main") + "?context=" + context["message"]
             return redirect(redirect_url)
@@ -40,6 +44,7 @@ def login_request(request):
 
         if user is not None:
             login(request, user)
+            logger.debug(f"Login user: {username} ")
             context = {"message": "Login successful"}
             redirect_url = reverse("quiz:main") + "?context=" + context["message"]
             return redirect(redirect_url)
@@ -49,6 +54,7 @@ def login_request(request):
 
 
 def logout_request(request):
+    logger.debug(f"Logout user: {request.user.username}")
     logout(request)
     context = {"message": "Logout successful"}
     redirect_url = reverse("quiz:main") + "?context=" + context["message"]
