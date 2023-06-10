@@ -34,7 +34,7 @@ Football_Quiz is built using the following technologies:
    3. Start the application by running the command 'python manage.py runserver' in the application folder.
    4. Open your browser and go to "http://127.0.0.1:8000/".
    
-   ###or
+###or
    1. Clone the Docker image using the command: docker pull falkowskikamil/football_quiz:tagname. Make sure Docker is installed.
    2. Run container, using host Ports "8000"
    3. Open your browser and go to "http://127.0.0.1:8000/".
