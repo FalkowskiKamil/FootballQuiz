@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from . import quiz_manager, squad_manager, models
 from django.contrib.auth.models import User
+from manage import configure_logger
+logger=configure_logger()
 
 # Create your views here.
 
@@ -31,6 +33,7 @@ def result(request, quiz_type):
     # Saving result
     user = request.user if request.user.is_authenticated else None
     result = models.Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
+    logger.debug(f'{result}')
     context = {"score": result}
     return render(request, template_name="quiz/result.html", context=context)
 
