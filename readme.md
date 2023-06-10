@@ -35,7 +35,7 @@ Option 1:
    4. Open your browser and go to "http://127.0.0.1:8000/".
    
 Option 2:
-   1. Clone the Docker image using the command: docker pull falkowskikamil/football_quiz:tagname. Make sure Docker is installed.
+   1. Clone the Docker image using the command: docker pull falkowskikamil/football_quiz:tagname Make sure Docker is installed.
    2. Run container, using host Ports "8000"
    3. Open your browser and go to "http://127.0.0.1:8000/".
 
