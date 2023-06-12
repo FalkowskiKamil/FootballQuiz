@@ -8,6 +8,15 @@ logger = configure_logger()
 
 
 def register(request):
+    """
+    Handles the user registration request.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered template or a redirect response.
+    """
     if request.method == "GET":
         return render(request, "user/register.html")
     elif request.method == "POST":
@@ -35,6 +44,15 @@ def register(request):
 
 
 def login_request(request):
+    """
+    Handles the user login request.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered template or a redirect response.
+    """
     if request.method == "GET":
         return render(request, "user/login.html")
     elif request.method == "POST":
@@ -54,6 +72,15 @@ def login_request(request):
 
 
 def logout_request(request):
+    """
+    Handles the user logout request.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: A redirect response.
+    """
     logger.debug(f"Logout user: {request.user.username}")
     logout(request)
     context = {"message": "Logout successful"}

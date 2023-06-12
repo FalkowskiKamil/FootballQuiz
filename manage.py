@@ -7,6 +7,12 @@ from django.conf import settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
 def configure_logger():
+    """
+    Configures the logger for the application.
+    
+    Returns:
+        The configured logger object.
+    """
     logger = logging.getLogger(__name__)
     logger.setLevel(settings.LOGGING['loggers']['project']['level'])
 
@@ -23,7 +29,9 @@ def configure_logger():
     return logger
 
 def main():
-    """Run administrative tasks."""
+    """
+    Main function to run administrative tasks.
+    """
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
     try:

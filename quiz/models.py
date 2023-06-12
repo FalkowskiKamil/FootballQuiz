@@ -4,8 +4,20 @@ from django.utils import timezone
 from sqlalchemy import UniqueConstraint
 
 
-# Create your models here.
 class Quiz(models.Model):
+    """
+    Represents a quiz entry in the database.
+
+    Attributes:
+        user (ForeignKey): The user who took the quiz.
+        quiz_type (CharField): The type of the quiz.
+        score (IntegerField): The score obtained in the quiz.
+        date (DateTimeField): The date and time when the quiz was taken.
+
+    Meta:
+        constraints (list): A list of constraints for the Quiz model.
+    """
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -31,10 +43,24 @@ class Quiz(models.Model):
         ]
 
     def __str__(self):
+        """
+        Returns a string representation of the Quiz object.
+
+        Returns:
+            str: The string representation of the Quiz object.
+        """
         return f"User: {self.user} got: {self.score} in quiz: {self.quiz_type}"
 
     def save(self, *args, **kwargs):
-        # Check if there is an existing quiz with the same user, quiz_type, and score
+        """
+        Saves the Quiz object to the database.
+
+        Overrides the default save() method to handle uniqueness and date updating.
+
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+        """
         if Quiz.objects.filter(
             user=self.user, quiz_type=self.quiz_type, score=self.score
         ).exists():
