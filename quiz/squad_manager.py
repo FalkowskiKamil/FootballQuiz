@@ -57,6 +57,7 @@ def get_squad_result(quiz_type, items):
     """
     return calculate_score(devide_position(items), info(quiz_type))
 
+
 def devide_position(players):
     """
     Divide the posted list of players for each position.

@@ -11,7 +11,7 @@ def calculate_score(answer, rank_table, top=100):
         int: The calculated score.
 
     """
-    
+
     # Checking if answer are in database
     if answer not in rank_table:
         return 0
