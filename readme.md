@@ -19,6 +19,16 @@ The results of quizzes and challenges are recorded and available for individual 
 - Recording and tracking of user results.
 - Leaderboard to compare scores with other participants.
 
+## Screenshots
+![Screenshot 2023-06-13 at 13-29-05 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/a413cb65-5a22-4975-b62b-5f6286d0ff07)
+![Screenshot 2023-06-13 at 13-29-37 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/1383b8f7-3349-438c-9199-e6a2d968f283)
+![Screenshot 2023-06-13 at 13-30-12 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/37782d32-7a06-44dc-a4bd-7d94f8bf13c8)
+![Screenshot 2023-06-13 at 13-30-44 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/4f8d5592-cb27-4d13-b690-5663cb488c5a)
+![Screenshot 2023-06-13 at 13-30-58 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/fb65ff8f-03bf-42bc-9438-a2a77ef9ecf9)
+![Screenshot 2023-06-13 at 13-28-43 Football Quiz](https://github.com/FalkowskiKamil/Football_Quiz/assets/116383333/29a054d0-855e-4041-bfdf-177f03da5235)
+
+
+
 ## Technology Stack
 
 Football_Quiz is built using the following technologies:
