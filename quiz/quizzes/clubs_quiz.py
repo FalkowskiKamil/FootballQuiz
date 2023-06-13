@@ -1,91 +1,83 @@
 import pandas as pd
-from .calculator import calculate_score
+from .QuizClass import QuizClass
 
-df = pd.read_csv(
-    "quiz/data/clubs/football_results.csv",
-    encoding="ISO-8859-1",
-    usecols=[
-        "Date",
-        "Competition",
-        "Team",
-        "Team_Score",
-        "Opponent",
-        "Opponent_Score",
-        "Home_Penalties",
-        "Away_Penalties",
-        "Team_Points",
-        "Opponent_Points",
-    ],
-)
-
-
-def info():
-    clubs = df["Team"].sort_values().unique
-    date = df["Date"].sort_values()
-    competition = df["Competition"].sort_values().unique
-    question = [
-        "Most Home Goal",
-        "Most Away Goal",
-        "Most Goal",
-        "Most Penalty Scored",
-        "Most Won",
-        "Most Draw",
-    ]
-    return [clubs, date[0], date.iloc[-1], competition, question]
-
-
-def home_goal(answer):
-    home_team = df.groupby("Team")
-    rank_table = home_team["Team_Score"].count().sort_values(ascending=False)
-    return calculate_score(answer[1], rank_table)
-
-
-def away_goal(answer):
-    away_team = df.groupby("Opponent")
-    rank_table = away_team["Opponent_Score"].count().sort_values(ascending=False)
-    return calculate_score(answer[1], rank_table)
-
-
-def most_goal(answer):
-    home_team_scores = df.groupby("Team")["Team_Score"].sum()
-    away_team_scores = df.groupby("Opponent")["Opponent_Score"].sum()
-    team_scores = home_team_scores.add(away_team_scores, fill_value=0)
-    rank_table = team_scores.sort_values(ascending=False)
-    return calculate_score(answer[1], rank_table)
-
-
-def most_penalty(answer):
-    home_penalty = df.groupby("Team")["Home_Penalties"].sum()
-    away_penalty = df.groupby("Opponent")["Away_Penalties"].sum()
-    team_penalty = home_penalty.add(away_penalty, fill_value=0)
-    rank_table = team_penalty.sort_values(ascending=False)
-    return calculate_score(answer[1], rank_table)
-
-
-def most_won(answer):
-    home_won = df[df["Team_Points"] == 3.0].groupby("Team")["Team_Points"].sum()
-    away_won = (
-        df[df["Opponent_Points"] == 3.0].groupby("Opponent")["Opponent_Points"].sum()
+class FootballQuiz(QuizClass):
+    df = pd.read_csv(
+        "quiz/data/clubs/football_results.csv",
+        encoding="ISO-8859-1",
+        usecols=[
+            "Date",
+            "Competition",
+            "Team",
+            "Team_Score",
+            "Opponent",
+            "Opponent_Score",
+            "Home_Penalties",
+            "Away_Penalties",
+            "Team_Points",
+            "Opponent_Points",
+        ],
     )
-    rank_table = home_won.add(away_won, fill_value=0)
-    return calculate_score(answer[1], rank_table)
 
+    @classmethod
+    def info(cls):
+        clubs = cls.df["Team"].sort_values().unique
+        date = cls.df["Date"].sort_values()
+        competition = cls.df["Competition"].sort_values().unique
+        question = [
+            "Most Home Goal",
+            "Most Away Goal",
+            "Most Goal",
+            "Most Penalty Scored",
+            "Most Won",
+            "Most Draw",
+        ]
+        return [clubs, date[0], date.iloc[-1], competition, question]
 
-def most_draw(answer):
-    home_draw = df[df["Team_Points"] == 1.0].groupby("Team")["Team_Points"].sum()
-    away_draw = (
-        df[df["Opponent_Points"] == 1.0].groupby("Opponent")["Opponent_Points"].sum()
-    )
-    rank_table = home_draw.add(away_draw, fill_value=0)
-    return calculate_score(answer[1], rank_table)
+    @classmethod
+    def home_goal(cls, answer):
+        home_team = cls.df.groupby("Team")
+        rank_table = home_team["Team_Score"].count().sort_values(ascending=False)
+        return cls.calculate_score(answer[1], rank_table)
 
+    @classmethod
+    def away_goal(cls, answer):
+        away_team = cls.df.groupby("Opponent")
+        rank_table = away_team["Opponent_Score"].count().sort_values(ascending=False)
+        return cls.calculate_score(answer[1], rank_table)
 
-clubs_functions = [home_goal, away_goal, most_goal, most_penalty, most_won, most_draw]
+    @classmethod
+    def most_goal(cls, answer):
+        home_team_scores = cls.df.groupby("Team")["Team_Score"].sum()
+        away_team_scores = cls.df.groupby("Opponent")["Opponent_Score"].sum()
+        team_scores = home_team_scores.add(away_team_scores, fill_value=0)
+        rank_table = team_scores.sort_values(ascending=False)
+        return cls.calculate_score(answer[1], rank_table)
 
+    @classmethod
+    def most_penalty(cls, answer):
+        home_penalty = cls.df.groupby("Team")["Home_Penalties"].sum()
+        away_penalty = cls.df.groupby("Opponent")["Away_Penalties"].sum()
+        team_penalty = home_penalty.add(away_penalty, fill_value=0)
+        rank_table = team_penalty.sort_values(ascending=False)
+        return cls.calculate_score(answer[1], rank_table)
 
-def result(items):
-    score = 0
-    for i, answer in enumerate(items):
-        if i < len(clubs_functions):
-            score += clubs_functions[i](answer)
-    return score
+    @classmethod
+    def most_won(cls, answer):
+        home_won = cls.df[cls.df["Team_Points"] == 3.0].groupby("Team")["Team_Points"].sum()
+        away_won = (
+            cls.df[cls.df["Opponent_Points"] == 3.0].groupby("Opponent")["Opponent_Points"].sum()
+        )
+        rank_table = home_won.add(away_won, fill_value=0)
+        return cls.calculate_score(answer[1], rank_table)
+
+    @classmethod
+    def most_draw(cls, answer):
+        home_draw = cls.df[cls.df["Team_Points"] == 1.0].groupby("Team")["Team_Points"].sum()
+        away_draw = (
+            cls.df[cls.df["Opponent_Points"] == 1.0].groupby("Opponent")["Opponent_Points"].sum()
+        )
+        rank_table = home_draw.add(away_draw, fill_value=0)
+        return cls.calculate_score(answer[1], rank_table)
+
+    functions = [home_goal, away_goal, most_goal, most_penalty, most_won, most_draw]

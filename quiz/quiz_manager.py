@@ -1,4 +1,7 @@
-from .quizzes import national_quiz, clubs_quiz, stadium_quiz, wc_quiz
+from .quizzes.clubs_quiz import FootballQuiz
+from .quizzes.stadium_quiz import StadiumQuiz
+from .quizzes.national_quiz import NationalQuiz
+from .quizzes.wc_quiz import WorldCupQuiz
 
 
 def get_info(type):
@@ -14,16 +17,16 @@ def get_info(type):
     """
     match type:
         case "national":
-            return national_quiz.info()
+            return NationalQuiz.info()
 
         case "clubs":
-            return clubs_quiz.info()
+            return FootballQuiz.info()
 
         case "stadium":
-            return stadium_quiz.info()
+            return StadiumQuiz.info()
 
         case "wc":
-            return wc_quiz.info()
+            return WorldCupQuiz.info()
 
 
 def get_quiz_result(quiz_type, items):
@@ -40,13 +43,13 @@ def get_quiz_result(quiz_type, items):
     """
     match quiz_type:
         case "national":
-            return national_quiz.result(items)
+            return NationalQuiz.result(items)
 
         case "clubs":
-            return clubs_quiz.result(items)
+            return FootballQuiz.result(items)
 
         case "stadium":
-            return stadium_quiz.result(items)
+            return StadiumQuiz.result(items)
 
         case "wc":
-            return wc_quiz.result(items)
+            return WorldCupQuiz.result(items)
