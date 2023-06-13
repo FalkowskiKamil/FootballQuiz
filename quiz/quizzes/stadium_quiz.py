@@ -3,16 +3,16 @@ from .QuizClass import QuizClass
 
 
 class StadiumQuiz(QuizClass):
-
     df = pd.read_csv("quiz/data/stadium/all_stadiums.csv", usecols=[1, 2, 5, 6])
     df["total_capacity"] = df["total_capacity"].str.replace(",", "").astype(int)
 
     @classmethod
     def info(cls):
         stadium2 = (
-            cls.df[(cls.df["sport_played"] == "Football") & (cls.df["total_capacity"] > 15000)][
-                "country"
-            ]
+            cls.df[
+                (cls.df["sport_played"] == "Football")
+                & (cls.df["total_capacity"] > 15000)
+            ]["country"]
             .sort_values()
             .unique
         )
@@ -25,7 +25,6 @@ class StadiumQuiz(QuizClass):
             "Africa most +15k stadium",
         ]
         return [stadium2, None, None, None, question]
-
 
     @classmethod
     def biggest_stadium(cls, answer):
@@ -47,29 +46,26 @@ class StadiumQuiz(QuizClass):
 
     @classmethod
     def eu_most(cls, answer):
-        country = cls.df[(cls.df["region"] == "Europe") & (cls.df["total_capacity"] >= 15000)].groupby(
-            "country"
-        )
+        country = cls.df[
+            (cls.df["region"] == "Europe") & (cls.df["total_capacity"] >= 15000)
+        ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=5)
 
     @classmethod
     def as_most(cls, answer):
-        country = cls.df[(cls.df["region"] == "Asia") & (cls.df["total_capacity"] >= 15000)].groupby(
-            "country"
-        )
+        country = cls.df[
+            (cls.df["region"] == "Asia") & (cls.df["total_capacity"] >= 15000)
+        ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=5)
 
     @classmethod
     def af_most(cls, answer):
-        country = cls.df[(cls.df["region"] == "Africa") & (cls.df["total_capacity"] >= 15000)].groupby(
-            "country"
-        )
+        country = cls.df[
+            (cls.df["region"] == "Africa") & (cls.df["total_capacity"] >= 15000)
+        ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=5)
 
-    
     functions = [biggest_stadium, eu_biggest, sa_biggest, eu_most, as_most, af_most]
-
-

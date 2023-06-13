@@ -34,7 +34,7 @@ class WorldCupQuiz(QuizClass):
         .fillna(0)
         .astype(int)
     )
-        
+
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique
@@ -60,10 +60,11 @@ class WorldCupQuiz(QuizClass):
     def score_goal(cls, answer):
         home_scores = cls.df.groupby("home_team")["home_score"].sum()
         away_scores = cls.df.groupby("away_team")["away_score"].sum()
-        rank_table = home_scores.add(away_scores, fill_value=0).sort_values(ascending=False)
+        rank_table = home_scores.add(away_scores, fill_value=0).sort_values(
+            ascending=False
+        )
         return cls.calculate_score(answer[1], rank_table, top=30)
 
-    
     @classmethod
     def penalty_goal(cls, answer):
         home_penalty = cls.df.groupby("home_team")["home_penalty"].sum()
@@ -73,7 +74,6 @@ class WorldCupQuiz(QuizClass):
         )
         return cls.calculate_score(answer[1], rank_table, top=30)
 
-    
     @classmethod
     def conceded_goal(cls, answer):
         home_conceded = cls.df.groupby("home_team")["away_score"].sum()
@@ -83,7 +83,6 @@ class WorldCupQuiz(QuizClass):
         )
         return cls.calculate_score(answer[1], rank_table, top=30)
 
-    
     @classmethod
     def most_red(cls, answer):
         home_red = cls.df.groupby("home_team")["home_red_card"].sum()
@@ -91,16 +90,16 @@ class WorldCupQuiz(QuizClass):
         rank_table = home_red.add(away_red, fill_value=0).sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=30)
 
-    
     @classmethod
     def goal_to_apperance(cls, answer):
         home_goals = cls.df.groupby("home_team")["home_score"].sum()
         away_goals = cls.df.groupby("away_team")["away_score"].sum()
         total_goals = home_goals.add(away_goals, fill_value=0)
-        matches_played = cls.df["home_team"].value_counts() + cls.df["away_team"].value_counts()
+        matches_played = (
+            cls.df["home_team"].value_counts() + cls.df["away_team"].value_counts()
+        )
         rank_table = total_goals.divide(matches_played).sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=30)
-
 
     functions = [
         apperance,

@@ -28,7 +28,7 @@ class QuizClass:
             else:
                 score = 100 - rank_table.index.get_loc(answer)
             return score
-        
+
     @classmethod
     def result(cls, items):
         score = 0

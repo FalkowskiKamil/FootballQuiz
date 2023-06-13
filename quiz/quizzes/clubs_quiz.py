@@ -1,6 +1,7 @@
 import pandas as pd
 from .QuizClass import QuizClass
 
+
 class FootballQuiz(QuizClass):
     df = pd.read_csv(
         "quiz/data/clubs/football_results.csv",
@@ -64,18 +65,26 @@ class FootballQuiz(QuizClass):
 
     @classmethod
     def most_won(cls, answer):
-        home_won = cls.df[cls.df["Team_Points"] == 3.0].groupby("Team")["Team_Points"].sum()
+        home_won = (
+            cls.df[cls.df["Team_Points"] == 3.0].groupby("Team")["Team_Points"].sum()
+        )
         away_won = (
-            cls.df[cls.df["Opponent_Points"] == 3.0].groupby("Opponent")["Opponent_Points"].sum()
+            cls.df[cls.df["Opponent_Points"] == 3.0]
+            .groupby("Opponent")["Opponent_Points"]
+            .sum()
         )
         rank_table = home_won.add(away_won, fill_value=0)
         return cls.calculate_score(answer[1], rank_table)
 
     @classmethod
     def most_draw(cls, answer):
-        home_draw = cls.df[cls.df["Team_Points"] == 1.0].groupby("Team")["Team_Points"].sum()
+        home_draw = (
+            cls.df[cls.df["Team_Points"] == 1.0].groupby("Team")["Team_Points"].sum()
+        )
         away_draw = (
-            cls.df[cls.df["Opponent_Points"] == 1.0].groupby("Opponent")["Opponent_Points"].sum()
+            cls.df[cls.df["Opponent_Points"] == 1.0]
+            .groupby("Opponent")["Opponent_Points"]
+            .sum()
         )
         rank_table = home_draw.add(away_draw, fill_value=0)
         return cls.calculate_score(answer[1], rank_table)

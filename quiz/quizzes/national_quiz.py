@@ -1,11 +1,11 @@
 import pandas as pd
 from .QuizClass import QuizClass
 
+
 class NationalQuiz(QuizClass):
     df = pd.read_csv("quiz/data/national/results.csv", encoding="ISO-8859-1")
     df2 = pd.read_csv("quiz/data/national/goalscorers.csv", encoding="ISO-8859-1")
 
-    
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique
@@ -27,21 +27,18 @@ class NationalQuiz(QuizClass):
         rank_table = home_team["home_score"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table)
 
-    
     @classmethod
     def away_goal(cls, answer):
         away_team = cls.df.groupby("away_team")
         rank_table = away_team["away_score"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table)
 
-    
     @classmethod
     def most_goal(cls, answer):
         most_goal = cls.df2.groupby("team")
         rank_table = most_goal["team"].count().sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table)
 
-    
     @classmethod
     def most_own_goal(cls, answer):
         rank_table = (
@@ -52,15 +49,15 @@ class NationalQuiz(QuizClass):
         )
         return cls.calculate_score(answer[1], rank_table)
 
-    
     @classmethod
     def most_wc_goal(cls, answer):
         world_cup_data = cls.df[cls.df["tournament"] == "FIFA World Cup"]
-        score_totals = world_cup_data.groupby("country")["home_score", "away_score"].sum()
+        score_totals = world_cup_data.groupby("country")[
+            "home_score", "away_score"
+        ].sum()
         rank_table = score_totals["home_score"] + score_totals["away_score"]
         return cls.calculate_score(answer[1], rank_table)
 
-    
     @classmethod
     def most_penalty_goal(cls, answer):
         rank_table = (
@@ -71,7 +68,6 @@ class NationalQuiz(QuizClass):
         )
         return cls.calculate_score(answer[1], rank_table)
 
-
     functions = [
         most_goal,
         home_goal,
@@ -80,4 +76,3 @@ class NationalQuiz(QuizClass):
         most_wc_goal,
         most_penalty_goal,
     ]
-
