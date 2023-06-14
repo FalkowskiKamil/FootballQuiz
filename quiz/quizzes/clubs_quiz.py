@@ -1,30 +1,15 @@
 import pandas as pd
 from .QuizClass import QuizClass
 
-
 class FootballQuiz(QuizClass):
-    df = pd.read_csv(
-        "quiz/data/clubs/football_results.csv",
-        encoding="ISO-8859-1",
-        usecols=[
-            "Date",
-            "Competition",
-            "Team",
-            "Team_Score",
-            "Opponent",
-            "Opponent_Score",
-            "Home_Penalties",
-            "Away_Penalties",
-            "Team_Points",
-            "Opponent_Points",
-        ],
-    )
-
+    collection = QuizClass.db['clubs_quiz']
+    df = pd.DataFrame(list(collection.find()))
+    
     @classmethod
     def info(cls):
-        clubs = cls.df["Team"].sort_values().unique
-        date = cls.df["Date"].sort_values()
-        competition = cls.df["Competition"].sort_values().unique
+        clubs = cls.df["Team"].sort_values().unique()
+        date = cls.df["Date"].sort_values().unique()
+        competition = cls.df["Competition"].sort_values().unique()
         question = [
             "Most Home Goal",
             "Most Away Goal",
@@ -33,7 +18,7 @@ class FootballQuiz(QuizClass):
             "Most Won",
             "Most Draw",
         ]
-        return [clubs, date[0], date.iloc[-1], competition, question]
+        return [clubs, date[0], date[-1], competition, question]
 
     @classmethod
     def home_goal(cls, answer):
@@ -88,5 +73,6 @@ class FootballQuiz(QuizClass):
         )
         rank_table = home_draw.add(away_draw, fill_value=0)
         return cls.calculate_score(answer[1], rank_table)
+
 
     functions = [home_goal, away_goal, most_goal, most_penalty, most_won, most_draw]

@@ -3,7 +3,8 @@ from .QuizClass import QuizClass
 
 
 class StadiumQuiz(QuizClass):
-    df = pd.read_csv("quiz/data/stadium/all_stadiums.csv", usecols=[1, 2, 5, 6])
+    collection = QuizClass.db['stadium_quiz']
+    df = pd.DataFrame(list(collection.find()))
     df["total_capacity"] = df["total_capacity"].str.replace(",", "").astype(int)
 
     @classmethod

@@ -4,22 +4,10 @@ from .QuizClass import QuizClass
 
 
 class WorldCupQuiz(QuizClass):
-    df = pd.read_csv(
-        "quiz/data/wc/wc_detail.csv",
-        usecols=[
-            "home_team",
-            "away_team",
-            "home_score",
-            "away_score",
-            "home_penalty",
-            "away_penalty",
-            "Date",
-            "Host",
-            "Year",
-            "home_red_card",
-            "away_red_card",
-        ],
-    )
+    collection = QuizClass.db['wc_quiz']
+    df = pd.DataFrame(list(collection.find()))
+    
+    #preparing data
     df["home_red_card"] = (
         df["home_red_card"]
         .replace([np.nan, np.inf], "")
@@ -55,6 +43,7 @@ class WorldCupQuiz(QuizClass):
         away_match = cls.df["away_team"].value_counts()
         rank_table = home_match.add(away_match).sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=30)
+
 
     @classmethod
     def score_goal(cls, answer):

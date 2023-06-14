@@ -1,10 +1,26 @@
+from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = "mongodb+srv://testuser:testuser@quizapp.hg72xda.mongodb.net/?retryWrites=true&w=majority"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
 class QuizClass:
+    db = client['Quiz']
+
     @classmethod
     def info(cls):
         raise NotImplementedError("Subclasses must implement info() method.")
 
     @classmethod
-    def calculate_score(cls, answer, rank_table, top=100):
+    def calculate_score(_, answer, rank_table, top=100):
         """
         Calculate the score based on the answers and rank table.
 
@@ -32,6 +48,6 @@ class QuizClass:
     @classmethod
     def result(cls, items):
         score = 0
-        for answer, function in zip(items, cls.functions):
-            score += function(answer)
+        for answer, cls.function in zip(items, cls.functions):
+            score += cls.function(answer)
         return score
