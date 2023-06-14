@@ -1,6 +1,20 @@
 import pandas as pd
+from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = "mongodb+srv://testuser:testuser@quizapp.hg72xda.mongodb.net/?retryWrites=true&w=majority"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi("1"))
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command("ping")
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
 
 
+db = client["Squad"]
 def info(type):
     """
     Retrieves information from the CSV files based on the quiz type.
@@ -14,31 +28,24 @@ def info(type):
     """
     match type:
         case "value squad":
-            df = pd.read_csv(
-                "quiz/data/squad/players.csv",
-                usecols=["name", "position", "highest_market_value_in_eur"],
-            )
+            collection = db["players"]
+            df = pd.DataFrame(list(collection.find()))
             df = df.sort_values(by="highest_market_value_in_eur", ascending=False)
 
+
         case "goal squad":
-            df = pd.read_csv(
-                "quiz/data/squad/merged_appearances.csv",
-                usecols=["name", "goals", "position"],
-            )
+            collection = db["appearances"]
+            df = pd.DataFrame(list(collection.find()))
             df = df.sort_values(by="goals", ascending=False)
 
         case "assist squad":
-            df = pd.read_csv(
-                "quiz/data/squad/merged_appearances.csv",
-                usecols=["name", "assists", "position"],
-            )
+            collection = db["appearances"]
+            df = pd.DataFrame(list(collection.find()))
             df = df.sort_values(by="assists", ascending=False)
 
         case "yellow squad":
-            df = pd.read_csv(
-                "quiz/data/squad/merged_appearances.csv",
-                usecols=["name", "yellow_cards", "position"],
-            )
+            collection = db["appearances"]
+            df = pd.DataFrame(list(collection.find()))
             df = df.sort_values(by="yellow_cards", ascending=False)
     return df
 
@@ -72,6 +79,7 @@ def devide_position(players):
     players_dict = {
         "Attack": players.getlist("striker[]"),
         "Midfield": players.getlist("middlefielder[]"),
+
         "Defender": players.getlist("defender[]"),
         "Goalkeeper": players.getlist("goalkeeper"),
     }

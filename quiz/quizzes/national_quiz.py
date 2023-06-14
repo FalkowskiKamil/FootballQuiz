@@ -8,8 +8,6 @@ class NationalQuiz(QuizClass):
     collection_2 = QuizClass.db["national_quiz_goalscorers"]
 
     df2 = pd.DataFrame(list(collection_2.find()))
-    df2 = pd.read_csv("quiz/data/national/goalscorers.csv", encoding="ISO-8859-1")
-
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique
