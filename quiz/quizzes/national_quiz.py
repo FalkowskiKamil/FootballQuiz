@@ -2,12 +2,11 @@ import pandas as pd
 from .QuizClass import QuizClass
 
 
-
 class NationalQuiz(QuizClass):
-    collection_1 = QuizClass.db['national_quiz_results']
+    collection_1 = QuizClass.db["national_quiz_results"]
     df = pd.DataFrame(list(collection_1.find()))
-    collection_2 = QuizClass.db['national_quiz_goalscorers']
-    
+    collection_2 = QuizClass.db["national_quiz_goalscorers"]
+
     df2 = pd.DataFrame(list(collection_2.find()))
     df2 = pd.read_csv("quiz/data/national/goalscorers.csv", encoding="ISO-8859-1")
 
@@ -57,7 +56,9 @@ class NationalQuiz(QuizClass):
     @classmethod
     def most_wc_goal(cls, answer):
         world_cup_data = cls.df[cls.df["tournament"] == "FIFA World Cup"]
-        score_totals = world_cup_data.groupby(["country"])["home_score", "away_score"].sum()
+        score_totals = world_cup_data.groupby(["country"])[
+            "home_score", "away_score"
+        ].sum()
         rank_table = score_totals["home_score"] + score_totals["away_score"]
         return cls.calculate_score(answer[1], rank_table)
 

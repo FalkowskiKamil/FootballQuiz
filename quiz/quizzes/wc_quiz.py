@@ -4,10 +4,10 @@ from .QuizClass import QuizClass
 
 
 class WorldCupQuiz(QuizClass):
-    collection = QuizClass.db['wc_quiz']
+    collection = QuizClass.db["wc_quiz"]
     df = pd.DataFrame(list(collection.find()))
-    
-    #preparing data
+
+    # preparing data
     df["home_red_card"] = (
         df["home_red_card"]
         .replace([np.nan, np.inf], "")
@@ -43,7 +43,6 @@ class WorldCupQuiz(QuizClass):
         away_match = cls.df["away_team"].value_counts()
         rank_table = home_match.add(away_match).sort_values(ascending=False)
         return cls.calculate_score(answer[1], rank_table, top=30)
-
 
     @classmethod
     def score_goal(cls, answer):
