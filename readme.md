@@ -14,6 +14,7 @@ The results of quizzes and challenges are recorded and available for individual 
 
 ## Features
 
+- To access the full potential of the website, log in using the username "admin" and the password "admin."
 - Quiz section with four categories: Clubs, National Teams, World Championships, and Stadiums.
 - Squad Challenge section for selecting top-performing players.
 - Recording and tracking of user results.
@@ -35,6 +36,7 @@ The results of quizzes and challenges are recorded and available for individual 
 Football_Quiz is built using the following technologies:
 
 - Framework: Django
+- Database: MongoDB
 - Database Retrieval: Pandas
 - Deployment and Management: Docker
 
