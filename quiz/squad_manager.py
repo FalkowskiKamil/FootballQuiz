@@ -13,27 +13,23 @@ def info(type):
         pd.DataFrame: The DataFrame containing the relevant information.
 
     """
+    
     match type:
         case "value squad":
             collection = db["players"]
-            df = pd.DataFrame(list(collection.find()))
-            df = df.sort_values(by="highest_market_value_in_eur", ascending=False)
-
-
+            df = pd.DataFrame(collection.find())
+            df=df.sort_values(by="highest_market_value_in_eur", ascending=False)
+            df.to_csv('players.csv')
+        
         case "goal squad":
-            collection = db["appearances"]
-            df = pd.DataFrame(list(collection.find()))
-            df = df.sort_values(by="goals", ascending=False)
-
+            collection = db["appearance_goals"]
+            df = pd.DataFrame(collection.find())
         case "assist squad":
-            collection = db["appearances"]
-            df = pd.DataFrame(list(collection.find()))
-            df = df.sort_values(by="assists", ascending=False)
-
+            collection = db["appearance_assists"]
+            df = pd.DataFrame(collection.find())
         case "yellow squad":
-            collection = db["appearances"]
-            df = pd.DataFrame(list(collection.find()))
-            df = df.sort_values(by="yellow_cards", ascending=False)
+            collection = db["appearance_yellow"]
+            df = pd.DataFrame(collection.find())
     return df
 
 
