@@ -8,11 +8,7 @@ class StadiumQuiz(QuizClass):
 
     @classmethod
     def info(cls):
-        stadium = (
-            cls.df["country"]
-            .sort_values()
-            .unique
-        )
+        stadium = cls.df["country"].sort_values().unique
         question = [
             "World biggest stadium:",
             "EU biggest stadium:",

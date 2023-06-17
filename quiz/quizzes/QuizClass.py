@@ -1,4 +1,6 @@
 from mongo_connection import client
+
+
 class QuizClass:
     db = client["Quiz"]
 

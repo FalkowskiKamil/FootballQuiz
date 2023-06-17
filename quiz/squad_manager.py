@@ -2,6 +2,8 @@ import pandas as pd
 from mongo_connection import client
 
 db = client["Squad"]
+
+
 def info(type):
     """
     Retrieves information from the CSV files based on the quiz type.
@@ -13,12 +15,12 @@ def info(type):
         pd.DataFrame: The DataFrame containing the relevant information.
 
     """
-    
+
     match type:
         case "value squad":
             collection = db["players"]
             df = pd.DataFrame(collection.find())
-        
+
         case "goal squad":
             collection = db["appearance_goals"]
             df = pd.DataFrame(collection.find())
@@ -60,7 +62,6 @@ def devide_position(players):
     players_dict = {
         "Attack": players.getlist("striker[]"),
         "Midfield": players.getlist("middlefielder[]"),
-
         "Defender": players.getlist("defender[]"),
         "Goalkeeper": players.getlist("goalkeeper"),
     }

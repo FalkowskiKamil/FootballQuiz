@@ -6,7 +6,7 @@ from .QuizClass import QuizClass
 class WorldCupQuiz(QuizClass):
     collection = QuizClass.db["wc_quiz"]
     df = pd.DataFrame(list(collection.find()))
-    
+
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique
