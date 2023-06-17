@@ -5,9 +5,10 @@ from .QuizClass import QuizClass
 class NationalQuiz(QuizClass):
     collection_1 = QuizClass.db["national_quiz_results"]
     df = pd.DataFrame(list(collection_1.find()))
+    
     collection_2 = QuizClass.db["national_quiz_goalscorers"]
-
     df2 = pd.DataFrame(list(collection_2.find()))
+
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique

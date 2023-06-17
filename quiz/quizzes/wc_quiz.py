@@ -6,23 +6,7 @@ from .QuizClass import QuizClass
 class WorldCupQuiz(QuizClass):
     collection = QuizClass.db["wc_quiz"]
     df = pd.DataFrame(list(collection.find()))
-
-    # preparing data
-    df["home_red_card"] = (
-        df["home_red_card"]
-        .replace([np.nan, np.inf], "")
-        .str.count("·")
-        .fillna(0)
-        .astype(int)
-    )
-    df["away_red_card"] = (
-        df["away_red_card"]
-        .replace([np.nan, np.inf], "")
-        .str.count("·")
-        .fillna(0)
-        .astype(int)
-    )
-
+    
     @classmethod
     def info(cls):
         nations = cls.df["home_team"].sort_values().unique

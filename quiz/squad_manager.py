@@ -18,8 +18,6 @@ def info(type):
         case "value squad":
             collection = db["players"]
             df = pd.DataFrame(collection.find())
-            df=df.sort_values(by="highest_market_value_in_eur", ascending=False)
-            df.to_csv('players.csv')
         
         case "goal squad":
             collection = db["appearance_goals"]

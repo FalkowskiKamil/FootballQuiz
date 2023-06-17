@@ -5,15 +5,11 @@ from .QuizClass import QuizClass
 class StadiumQuiz(QuizClass):
     collection = QuizClass.db["stadium_quiz"]
     df = pd.DataFrame(list(collection.find()))
-    df["total_capacity"] = df["total_capacity"].str.replace(",", "").astype(int)
 
     @classmethod
     def info(cls):
-        stadium2 = (
-            cls.df[
-                (cls.df["sport_played"] == "Football")
-                & (cls.df["total_capacity"] > 15000)
-            ]["country"]
+        stadium = (
+            cls.df["country"]
             .sort_values()
             .unique
         )
@@ -25,7 +21,7 @@ class StadiumQuiz(QuizClass):
             "Asia most +15k stadium",
             "Africa most +15k stadium",
         ]
-        return [stadium2, None, None, None, question]
+        return [stadium, None, None, None, question]
 
     @classmethod
     def biggest_stadium(cls, answer):
