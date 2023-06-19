@@ -20,7 +20,6 @@ def info(type):
         case "value squad":
             collection = db["players"]
             df = pd.DataFrame(collection.find())
-
         case "goal squad":
             collection = db["appearance_goals"]
             df = pd.DataFrame(collection.find())

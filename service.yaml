@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: game-service
+  name: footballquiz-service
 spec:
   selector:
-    mylabelname: game
+    mylabelname: footballquiz
   ports:
   - name: http
     port: 8000

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footballquiz
+spec:
+  minReadySeconds: 1
+  selector:
+    matchLabels:
+      mylabelname: footballquiz
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        mylabelname: footballquiz
+    spec:
+      containers:
+      - name: footballquiz
+        image: falkowskikamil/football_quiz:tagname
