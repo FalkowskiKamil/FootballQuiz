@@ -9,7 +9,11 @@
           <h2 class="card-title">Best Score:</h2>
           <p class="card-text">
             {{ result.first.score }} by
+            {% if result.0.user.username %}
             <a href="{% url 'quiz:profile' user_id=result.first.user.id %}">{{ result.first.user.username }}</a>
+            {% else %}
+            Unregistered player
+            {% endif %}
             on {{ result.first.date }}
             {% if result.first.quiz_type != quiz_type %}
               in {{ result.first.quiz_type }}
@@ -27,7 +31,7 @@
             {% if result.1.user.username %}
               <a href="{% url 'quiz:profile' user_id=result.1.user.id %}">{{ result.1.user.username }}</a>
             {% else %}
-              Not registered user
+              Unregistered player
             {% endif %}
             on {{ result.1.date }}
             {% if result.1.quiz_type != quiz_type %}
@@ -47,7 +51,7 @@
             {% if result.2.user.username %}
               <a href="{% url 'quiz:profile' user_id=result.2.user.id %}">{{ result.2.user.username }}</a>
             {% else %}
-              Unregistered
+              Unregistered player
             {% endif %}
             on {{ result.2.date }}
             {% if result.2.quiz_type != quiz_type %}
