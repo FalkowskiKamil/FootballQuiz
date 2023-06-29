@@ -3,7 +3,7 @@
 <div class="container text-center mt-4 p-4 border rounded-5 bg-secondary ">
    <form class="vw-25 p-4" action="{% url 'user:login_request' %}", method="POST">
       {% csrf_token %}
-      <img class="mb-4" src="/static/quiz/logo2.png" alt="" width="50" height="57">
+      <img class="mb-4" src="{% static 'logo2.png %}" alt="" width="50" height="57">
       <h1 class="h3 mb-3 fw-bolder">Login</h1>
       <div class="form-group">
          <label for="username" class="m-2"><b>User Name</b></label>

@@ -25,47 +25,47 @@
 }
 
 .value-squad {
-  background-image: url('/static/quiz/value_squad.jpg');
+  background-image: url('value_squad.jpg');
 }
 
 .goal-squad {
-  background-image: url('/static/quiz/goal_squad.jpg');
+  background-image: url('goal_squad.jpg');
 }
 
 .assist-squad {
-  background-image: url('/static/quiz/assist_squad.jpg');
+  background-image: url('assist_squad.jpg');
 }
 
 .yellow-squad {
-  background-image: url('/static/quiz/yellow_squad.jpg');
+  background-image: url('yellow_squad.jpg');
 }
 
 .main-quiz {
-  background-image: url('/static/quiz/main_quiz.jpg');
+  background-image: url('main_quiz.jpg');
 }
 
 .main-squad {
-  background-image: url('/static/quiz/main_squad.jpg');
+  background-image: url('main_squad.jpg');
 }
 
 .quiz-clubs{
-  background-image: url('/static/quiz/clubs3.jpg');
+  background-image: url('clubs3.jpg');
 }
 
 .quiz-national{
-  background-image: url('/static/quiz/national3.jpg');
+  background-image: url('national3.jpg');
 }
 
 .quiz-stadium{
-  background-image: url('/static/quiz/stadium3.jpg');
+  background-image: url('stadium3.jpg');
 }
 
 .quiz-wc{
-  background-image: url('/static/quiz/WC3.jpg');
+  background-image: url('WC3.jpg');
 }
 
 .background-pitch{
-  background: url('/static/quiz/pitch3.jpg') no-repeat center center fixed; 
+  background: url('pitch3.jpg') no-repeat center center fixed; 
   height: 100%; 
   width: 100%; 
   background-size: cover; 
