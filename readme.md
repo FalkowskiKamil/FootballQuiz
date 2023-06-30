@@ -2,6 +2,10 @@
 
 Football_Quiz is an innovative application designed for football enthusiasts who want to test their knowledge and compete with other fans. The application offers two main sections:
 
+## View
+
+[FootballQUiz is available on heroku (click)](https://djangofootballquiz-e8f17aa7474f.herokuapp.com/)
+
 ## Quiz
 
 This section allows users to select a team (or stadium) that achieved the highest accolades in a given topic. The quiz is divided into four categories: Clubs, National Teams, World Championships, and Stadiums. Each category consists of 6 questions to challenge your football knowledge.
@@ -45,12 +49,12 @@ Option 1:
    1. Clone the repository.
    2. Install the necessary dependencies using the command 'pip install -r requirements.txt.'
    3. Start the application by running the command 'python manage.py runserver' in the application folder.
-   4. Open your browser and go to "http://localhost:8000/".
+   4. Open your browser and go to [http://localhost:8000/](http://localhost:8000/)
    
 Option 2:
    1. Clone the Docker image using the command: 'docker pull falkowskikamil/football_quiz:tagname' Make sure Docker is installed.
    2. Run container, using host Ports "8000"
-   3. Open your browser and go to "http://localhost:8000/".
+   3. Open your browser and go to [http://localhost:8000/](http://localhost:8000/)
 
 ## Contribution
 
