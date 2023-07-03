@@ -2,10 +2,6 @@
 
 Football_Quiz is an innovative application designed for football enthusiasts who want to test their knowledge and compete with other fans. The application offers two main sections:
 
-## View
-
-[FootballQUiz is available on heroku (click)](https://djangofootballquiz-e8f17aa7474f.herokuapp.com/)
-
 ## Quiz
 
 This section allows users to select a team (or stadium) that achieved the highest accolades in a given topic. The quiz is divided into four categories: Clubs, National Teams, World Championships, and Stadiums. Each category consists of 6 questions to challenge your football knowledge.
