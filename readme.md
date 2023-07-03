@@ -42,7 +42,8 @@ Football_Quiz is built using the following technologies:
 - Framework: Django
 - Database: MongoDB
 - Database Retrieval: Pandas
-- Deployment and Management: Docker
+- Testing: Selenium, Pytest
+- Deployment and Management: Docker, Kubernetes
 
 ## Installation
 Option 1:
