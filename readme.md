@@ -12,6 +12,10 @@ In this exciting section, users can choose eleven players who have the highest p
 
 The results of quizzes and challenges are recorded and available for individual users, as well as in a ranking for all participants.
 
+## Overview
+[You can have an overview of the functionality of the app on Replit](https://replit.com/@KamilFalkowski/FootballQuiz)
+
+
 ## Features
 
 - To access the full potential of the website, log in using the username "admin" and the password "admin."
