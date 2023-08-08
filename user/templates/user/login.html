@@ -1,9 +1,10 @@
 {% extends "quiz/index.html" %}
 {% block content %}
-<div class="container text-center mt-4 p-4 border rounded-5 bg-secondary ">
+{% load static %}
+<main class="container text-center mt-4 p-4 border rounded-5 bg-secondary w-50">
    <form class="vw-25 p-4" action="{% url 'user:login_request' %}", method="POST">
       {% csrf_token %}
-      <img class="mb-4" src="{% static 'logo2.png %}" alt="" width="50" height="57">
+      <img class="mb-4" src="{% static 'ico/favicon.png' %}" alt="logo" width="50" height="57">
       <h1 class="h3 mb-3 fw-bolder">Login</h1>
       <div class="form-group">
          <label for="username" class="m-2"><b>User Name</b></label>
@@ -13,5 +14,5 @@
       </div>
       <button class="btn btn-primary mt-2" type="submit">Login</button> 
    </form>
-</div>
+</main>
 {% endblock %}

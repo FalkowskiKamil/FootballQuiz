@@ -2,9 +2,8 @@
 
 {% block content %}
 <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
-  <div class="div-pitch">
-    <div class="pt-2 background-pitch">
-      <div class="d-flex justify-content-evenly mt-2">
+    <main class="pt-2 background-pitch">
+      <section class="d-flex justify-content-evenly">
         {% for _ in attack|slice:":2" %}
         <div>
           <input class="p-2" list="striker" placeholder="striker" name="striker[]" required multiple>
@@ -15,9 +14,8 @@
           </datalist>
         </div>
         {% endfor %}
-      </div>
-
-      <div class="d-flex justify-content-between">
+      </section>
+      <section class="d-flex justify-content-between">
         {% for _ in middlefielder|slice:":4" %}
           <div class="col-2">
             <input class="p-2 w-100" list="middlefielder" placeholder="middlefielder" name="middlefielder[]" required multiple>
@@ -28,9 +26,8 @@
             </datalist>
           </div>
         {% endfor %}
-      </div>
-
-      <div class="d-flex justify-content-between">
+      </section>
+      <section class="d-flex justify-content-between">
         {% for _ in defender|slice:":4" %}
           <div class="col-2">
             <input class="p-2 w-100" list="defender" placeholder="defender" name="defender[]" required multiple>
@@ -41,9 +38,8 @@
             </datalist>
           </div>
         {% endfor %}
-      </div>
-
-      <div class="d-flex justify-content-center">
+      </section>
+      <section class="d-flex justify-content-center">
         <div class="mb-2">
           <input class="p-2" list="goalkeeper" placeholder="goalkeeper" name="goalkeeper" required>
           <datalist id="goalkeeper">
@@ -52,12 +48,11 @@
             {% endfor %}
           </datalist>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
+    </main>
   {% csrf_token %}
-  <div class="d-flex justify-content-center mt-4">
+  <section class="d-flex justify-content-center mt-4">
     <button class="btn btn-primary btn-block">Send</button>
-  </div>
+  </section>
 </form>
 {% endblock %}

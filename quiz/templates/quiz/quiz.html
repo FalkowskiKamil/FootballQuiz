@@ -1,8 +1,10 @@
 {% extends "quiz/index.html" %}
 {% block content %}
 
-<div class="container text-center">
-  <h1 class="mt-2">{{ quiz_type|title }} Quiz</h1>
+<main class="container text-center">
+  <header>
+    <h1 class="mt-2">{{ quiz_type|title }} Quiz</h1>
+  </header>
   {% if first_date %}
   <small>Date from: {{ first_date }} to {{ last_date }} 
     {% if competition.all %}, about: 
@@ -14,25 +16,22 @@
     {% endif %}
   </small>
   {% endif %}
-
   <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     {% for question in questions %}
-    <div class="col-md-4">
-      <div class="p-3 border bg-light">
-        <label for="{{ question }}" class="form-label">{{ question }}</label>
-        <select class="form-select" id="{{ question }}" name="{{ question }}" required>
-          <option value="" selected disabled>Select team</option>
-          {% for team in teams %}
-          <option value="{{ team }}">{{ team }}</option>
-          {% endfor %}
-        </select>
-      </div>
-    </div>
+    <section class="col-md-4 p-3 border bg-light">
+      <label for="{{ question }}" class="form-label">{{ question }}</label>
+      <select class="form-select" id="{{ question }}" name="{{ question }}" required>
+        <option value="" selected disabled>Select team</option>
+        {% for team in teams %}
+        <option value="{{ team }}">{{ team }}</option>
+        {% endfor %}
+      </select>
+    </section>
     {% endfor %}
     {% csrf_token %}
     <div class="d-grid gap-2">
       <button type="submit" class="btn btn-danger">Send</button>
     </div>
   </form>
-</div>
+</main>
 {% endblock %}

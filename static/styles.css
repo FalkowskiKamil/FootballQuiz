@@ -25,60 +25,55 @@
 }
 
 .value-squad {
-  background-image: url('value_squad.jpg');
+  background-image: url('value_squad.webp');
 }
 
 .goal-squad {
-  background-image: url('goal_squad.jpg');
+  background-image: url('goal_squad.webp');
 }
 
 .assist-squad {
-  background-image: url('assist_squad.jpg');
+  background-image: url('assist_squad.webp');
 }
 
 .yellow-squad {
-  background-image: url('yellow_squad.jpg');
+  background-image: url('yellow_squad.webp');
 }
 
 .main-quiz {
-  background-image: url('main_quiz.jpg');
+  background-image: url('main_quiz.webp');
 }
 
 .main-squad {
-  background-image: url('main_squad.jpg');
+  background-image: url('main_squad.webp');
 }
 
 .quiz-clubs{
-  background-image: url('clubs3.jpg');
+  background-image: url('clubs3.webp');
 }
 
 .quiz-national{
-  background-image: url('national3.jpg');
+  background-image: url('national.webp');
 }
 
 .quiz-stadium{
-  background-image: url('stadium3.jpg');
+  background-image: url('stadium3.webp');
 }
 
 .quiz-wc{
-  background-image: url('WC3.jpg');
+  background-image: url('WC3.webp');
 }
 
 .background-pitch{
   background: url('pitch3.jpg') no-repeat center center fixed; 
-  height: 100%; 
-  width: 100%; 
   background-size: cover; 
-  position: absolute; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between;
-}
-
-.div-pitch{
   position: relative;
   height: calc(100vh - 56px);
 }
+
 
 .indicator-button {
   background-color: #333;
