@@ -3,9 +3,9 @@
 {% block content %}
 <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
     <main class="pt-2 background-pitch">
-      <section class="d-flex justify-content-evenly">
+      <section class="d-flex justify-content-md-evenly justify-content-sm-center flex-wrap">
         {% for _ in attack|slice:":2" %}
-        <div>
+        <div class="p-2">
           <input class="p-2" list="striker" placeholder="striker" name="striker[]" required multiple>
           <datalist id="striker">
             {% for player in attack %}
@@ -15,9 +15,9 @@
         </div>
         {% endfor %}
       </section>
-      <section class="d-flex justify-content-between">
+      <section class="d-flex justify-content-md-between justify-content-sm-center flex-wrap">
         {% for _ in middlefielder|slice:":4" %}
-          <div class="col-2">
+          <div class="col-md-2 col-sm-6 flex-wrap p-2">
             <input class="p-2 w-100" list="middlefielder" placeholder="middlefielder" name="middlefielder[]" required multiple>
             <datalist id="middlefielder">
               {% for player in middlefielder %}
@@ -27,9 +27,9 @@
           </div>
         {% endfor %}
       </section>
-      <section class="d-flex justify-content-between">
+      <section class="d-flex justify-content-md-between justify-content-sm-center flex-wrap">
         {% for _ in defender|slice:":4" %}
-          <div class="col-2">
+          <div class="col-md-2 col-sm-6 flex-wrap p-2">
             <input class="p-2 w-100" list="defender" placeholder="defender" name="defender[]" required multiple>
             <datalist id="defender">
               {% for player in defender %}

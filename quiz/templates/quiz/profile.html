@@ -6,10 +6,10 @@
   {% regroup result by quiz_type as quiz_results %}
   {% for quiz_type, quizzes in quiz_results %}
     <div class="card mt-3 card-body bg-light">
-        <h5 class="card-title text-center text-danger fw-bold">{{ quiz_type|title }} Quiz</h5>
+        <h2 class="card-title display-5 text-center text-danger fw-bold">{{ quiz_type|title }} Quiz</h2>
         {% for quiz in quizzes|slice:":3" %}
           <div class="card card-body mb-3">
-            <h6 class="card-subtitle mb-2 text-muted">Score: {{ quiz.score }}</h6>
+            <h3 class="card-subtitle display-6 mb-2 text-muted">Score: {{ quiz.score }}</h3>
             <p class="card-text">Date: {{ quiz.date }}</p>
           </div>
         {% endfor %}
