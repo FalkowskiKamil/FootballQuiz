@@ -32,14 +32,6 @@
             "index": "pypi",
             "version": "==3.7.2"
         },
-        "certifi": {
-            "hashes": [
-                "sha256:0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7",
-                "sha256:c6c2e98f5c7869efca1f8916fed228dd91539f9f1b444c314c06eef02980c716"
-            ],
-            "index": "pypi",
-            "version": "==2023.5.7"
-        },
         "django": {
             "hashes": [
                 "sha256:7e4225ec065e0f354ccf7349a22d209de09cc1c074832be9eb84c51c1799c432",
