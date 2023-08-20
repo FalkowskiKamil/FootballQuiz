@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 anyio = "==3.7.1"
 asgiref = "==3.7.2"
-certifi = "==2023.5.7"
 django = "*"
 dnspython = "==2.4.0"
 exceptiongroup = "==1.1.2"
