@@ -1,4 +1,4 @@
-from mongo_connection import client
+from utils.mongo_connection import client
 
 
 class QuizClass:
@@ -10,19 +10,6 @@ class QuizClass:
 
     @classmethod
     def calculate_score(_, answer, rank_table, top=100):
-        """
-        Calculate the score based on the answers and rank table.
-
-        Args:
-            answer (dict): A dictionary containing players divided by position.
-            rank_table (DataFrame): The rank table containing player rankings.
-            top (int, optional): The maximum rank to consider as "best". Defaults to 100.
-
-        Returns:
-            int: The calculated score.
-
-        """
-
         # Checking if answer is in the rank_table
         if answer not in rank_table:
             return 0

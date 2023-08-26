@@ -1,15 +1,15 @@
 {% extends "quiz/index.html" %}
 {% block content %}
 
-<div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselId" data-bs-slide-to="3" aria-label="Slide 3"></button>
-    </div>
+<main id="carouselId" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li type="button" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></li>
+    <li type="button" data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Slide 2"></li>
+    <li type="button" data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Slide 3"></li>
+    <li type="button" data-bs-target="#carouselId" data-bs-slide-to="3" aria-label="Slide 3"></li>
+  </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <section class="carousel-item active">
       <a href="{% url 'quiz:squad_challange' quiz_type='value squad' %}" class="banner-link value-squad">
         <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
           <div class="h-auto">
@@ -24,8 +24,8 @@
           </p>
         </div>
       </a>
-    </div>
-    <div class="carousel-item">
+    </section>
+    <section class="carousel-item">
       <a href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}" class="banner-link goal-squad">
         <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
           <div class="h-auto">
@@ -41,8 +41,8 @@
           </p>
         </div>
       </a>
-    </div>
-    <div class="carousel-item">
+    </section>
+    <section class="carousel-item">
       <a href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}" class="banner-link assist-squad">
         <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
           <div class="h-auto">
@@ -57,8 +57,8 @@
           </p>
         </div>
       </a>
-    </div>
-    <div class="carousel-item">
+    </section>
+    <section class="carousel-item">
       <a href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}" class="banner-link yellow-squad">
         <div class="mask h-100 d-flex flex-column justify-content-center align-items-center">
           <div class="h-auto">
@@ -74,7 +74,7 @@
           </p>
         </div>
       </a>
-    </div>
+    </section>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -84,5 +84,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
     </button>
-</div>
+</main>
 {% endblock %}

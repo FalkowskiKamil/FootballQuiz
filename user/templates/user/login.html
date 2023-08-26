@@ -1,6 +1,6 @@
 {% extends "quiz/index.html" %}
-{% block content %}
 {% load static %}
+{% block content %}
 <main class="container text-center mt-4 p-4 border rounded-5 bg-secondary w-50">
    <form class="vw-25 p-4" action="{% url 'user:login_request' %}", method="POST">
       {% csrf_token %}

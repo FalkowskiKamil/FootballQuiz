@@ -1,7 +1,7 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
    <head>
+      {% load static %}
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="This is a Django App for Football Quiz"/>
@@ -100,7 +100,7 @@
                   <a class="nav-link fw-bolder text-danger" href="{% url 'user:login_request' %}">Login</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link fw-bolder text-danger" href="{% url 'user:register' %}">Register</a>
+                  <a class="nav-link fw-bolder text-danger" href="{% url 'user:register_request' %}">Register</a>
                </li>
                {% endif %}
             </ul>

@@ -1,3 +1,2 @@
-__pycache__
-Procfile
-runtime.txt
+/__pycache__
+/.pytest_cache

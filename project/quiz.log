@@ -547,3 +547,80 @@
 2023-08-18 15:06:59,126 - __main__ - INFO - Server is starting...
 2023-08-20 13:21:37,132 - __main__ - INFO - Server is starting...
 2023-08-20 13:21:46,009 - __main__ - INFO - Server is starting...
+2023-08-26 14:46:32,385 - utils.logger - INFO - Example logger
+2023-08-26 14:46:32,432 - utils.logger - INFO - Example logger
+2023-08-26 14:47:20,727 - utils.logger - INFO - Example logger
+2023-08-26 14:47:20,729 - utils.logger - INFO - Example logger
+2023-08-26 15:54:09,012 - utils.logger - INFO - Example logger
+2023-08-26 15:54:09,014 - utils.logger - INFO - Example logger
+2023-08-26 15:58:56,602 - utils.logger - DEBUG - Register user: L/;yj7e_
+2023-08-26 15:58:56,602 - utils.logger - DEBUG - Logout user: L/;yj7e_
+2023-08-26 15:58:57,008 - utils.logger - DEBUG - Login user: L/;yj7e_ 
+2023-08-26 15:58:57,024 - utils.logger - DEBUG - Logout user: 
+2023-08-26 15:58:57,423 - utils.logger - DEBUG - Register user: ],*K7LKU
+2023-08-26 15:58:57,423 - utils.logger - DEBUG - Logout user: ],*K7LKU
+2023-08-26 15:58:58,025 - utils.logger - DEBUG - Register user: c%#-1'wD
+2023-08-26 16:02:36,333 - utils.logger - DEBUG - Register user: +vXH
+^5
+2023-08-26 16:02:36,348 - utils.logger - DEBUG - Logout user: +vXH
+^5
+2023-08-26 16:02:36,755 - utils.logger - DEBUG - Login user: +vXH
+^5 
+2023-08-26 16:02:36,755 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:02:37,160 - utils.logger - DEBUG - Register user: #	xIfi"F
+2023-08-26 16:02:37,160 - utils.logger - DEBUG - Logout user: #	xIfi"F
+2023-08-26 16:02:37,598 - utils.logger - DEBUG - Register user: ]kO$'=i+
+2023-08-26 16:08:41,862 - utils.logger - DEBUG - Register user: T&iiia!0
+2023-08-26 16:08:41,862 - utils.logger - DEBUG - Logout user: T&iiia!0
+2023-08-26 16:08:42,262 - utils.logger - DEBUG - Login user: T&iiia!0 
+2023-08-26 16:08:42,277 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:08:42,684 - utils.logger - DEBUG - Register user: Q=x'#Q`j
+2023-08-26 16:08:42,684 - utils.logger - DEBUG - Logout user: Q=x'#Q`j
+2023-08-26 16:08:43,137 - utils.logger - DEBUG - Register user: SD8|a)8.
+2023-08-26 16:10:04,949 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:10:04,949 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:10:05,356 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:10:05,356 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:10:05,789 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:10:05,793 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:10:06,233 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:11:25,405 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:11:25,405 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:11:25,813 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:11:25,813 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:11:26,220 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:11:26,220 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:11:26,673 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:13:05,607 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:13:05,611 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:13:06,066 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:13:06,070 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:13:06,606 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:13:06,612 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:13:07,096 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:15:05,000 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:15:05,000 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:15:05,407 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:15:05,422 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:15:05,829 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:15:05,829 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:15:06,270 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:17:14,961 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:17:14,961 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:17:15,367 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:17:15,383 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:17:15,789 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:17:15,789 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:17:16,243 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:20:07,649 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:20:07,665 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:20:08,063 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-26 16:20:08,063 - utils.logger - DEBUG - Logout user: 
+2023-08-26 16:20:08,470 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 16:20:08,486 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-26 16:20:08,908 - utils.logger - DEBUG - Register user: test_1234
+2023-08-26 17:39:45,918 - utils.logger - DEBUG - User: None got: 0 in quiz: value squad
+2023-08-26 17:40:50,714 - utils.logger - DEBUG - User: None got: 792 in quiz: value squad
+2023-08-26 17:42:59,886 - utils.logger - DEBUG - User: None got: 792 in quiz: value squad
+2023-08-26 17:48:58,928 - utils.logger - DEBUG - User: None got: 236 in quiz: value squad
+2023-08-26 17:50:09,991 - utils.logger - DEBUG - User: None got: 236 in quiz: value squad
