@@ -1,5 +1,4 @@
-{% extends "quiz/index.html" %}
-
+{% extends "quiz/index.html" %}{% block title %}Squad Challange{% endblock %}
 {% block content %}
 <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
     <main class="pt-2 background-pitch">
