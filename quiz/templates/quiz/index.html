@@ -15,7 +15,7 @@
    <body>
       <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark px-2" data-bs-theme="dark">
          <!--Brand Logo-->
-         <a class="navbar-brand my-1" href="{% url 'quiz:main' %}">
+         <a class="navbar-brand my-1" href="{% url 'football_quiz:main' %}">
             <img src="{% static 'ico/favicon.png' %}" alt="Logo" width="35" class="d-inline-block align-text-top ">
             <span>Football Quiz</span>
          </a>
@@ -34,10 +34,10 @@
                   Quiz
                   </a>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='clubs' %}">Club</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='national'%}">National</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='stadium' %}">Stadium</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:quiz' quiz_type='wc' %}">World Cup</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:quiz' quiz_type='clubs' %}">Club</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:quiz' quiz_type='national'%}">National</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:quiz' quiz_type='stadium' %}">Stadium</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:quiz' quiz_type='wc' %}">World Cup</a></li>
                   </ul>
                </li>
                <!--Squad Section-->
@@ -47,14 +47,14 @@
                   Squad Challenge
                   </a>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='value squad' %}">Most Value</a>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:squad_challange' quiz_type='value squad' %}">Most Value</a>
                      </li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='goal squad' %}">Most Goal</a>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:squad_challange' quiz_type='goal squad' %}">Most Goal</a>
                      </li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='assist squad' %}">Most
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:squad_challange' quiz_type='assist squad' %}">Most
                         Assist</a>
                      </li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:squad_challange' quiz_type='yellow squad' %}">Most
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:squad_challange' quiz_type='yellow squad' %}">Most
                         Yellow</a>
                      </li>
                   </ul>
@@ -67,22 +67,22 @@
                   </a>
                   <ul class="dropdown-menu">
                      <li><span class="dropdown-header">Quiz Challenge</span></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='clubs' %}">Clubs</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='national' %}">Nations</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='stadium' %}">Stadiums</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='wc' %}">World Cups</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='clubs' %}">Clubs</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='national' %}">Nations</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='stadium' %}">Stadiums</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='wc' %}">World Cups</a></li>
                      <li>
                         <hr class="dropdown-divider">
                      </li>
                      <li><span class="dropdown-header">Squad Challenge</span></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='value squad' %}">Most Value</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='goal squad' %}">Most Score</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='value squad' %}">Most Value</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='goal squad' %}">Most Score</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='assist squad' %}">Most Assist</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='yellow squad' %}">Most Yellow</a></li>
                      <li>
                         <hr class="dropdown-divider">
                      </li>
-                     <li><a class="dropdown-item" href="{% url 'quiz:ranking' quiz_type='all' %}">Best of all</a></li>
+                     <li><a class="dropdown-item" href="{% url 'football_quiz:ranking' quiz_type='all' %}">Best of all</a></li>
                   </ul>
                </li>
             </ul>
@@ -90,7 +90,7 @@
             <ul class="navbar-nav">
                {% if user.is_authenticated %}
                <li class="nav-item">
-                  <a class="nav-link fw-bolder text-danger" href="{% url 'quiz:profile' user_id=user.id %}">{{user.username}}</a>
+                  <a class="nav-link fw-bolder text-danger" href="{% url 'football_quiz:profile' user_id=user.id %}">{{user.username}}</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link fw-bolder text-danger" href="{% url 'user:logout_request' %}">Logout</a>

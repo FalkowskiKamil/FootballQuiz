@@ -16,7 +16,7 @@
     {% endif %}
   </small>
   {% endif %}
-  <form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
+  <form autocomplete="off" id="test" action="{% url 'football_quiz:result' quiz_type=quiz_type %}" method="post" class="row gy-5 g-3 justify-content-center">
     {% for question in questions %}
     <section class="col-md-4 p-3 border bg-light">
       <label for="{{ question }}" class="form-label">{{ question }}</label>

@@ -23,5 +23,5 @@ urlpatterns = [
     path("", quiz_views.main, name="main"),
     path("admin/", admin.site.urls),
     path("user/", include("user.urls")),
-    path("quiz/", include("quiz.urls")),
+    path("football_quiz/", include("quiz.urls")),
 ]

@@ -1,6 +1,6 @@
 {% extends "quiz/index.html" %}{% block title %}Squad Challange{% endblock %}
 {% block content %}
-<form autocomplete="off" id="test" action="{% url 'quiz:result' quiz_type=quiz_type %}" method="post">
+<form autocomplete="off" id="test" action="{% url 'football_quiz:result' quiz_type=quiz_type %}" method="post">
     <main class="pt-2 background-pitch">
       <section class="d-flex justify-content-md-evenly justify-content-sm-center flex-wrap">
         {% for _ in attack|slice:":2" %}
