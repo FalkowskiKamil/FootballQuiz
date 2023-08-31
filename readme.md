@@ -1,6 +1,6 @@
-# Football_Quiz
+# FootballQuiz
 
-Football_Quiz is an innovative application designed for football enthusiasts who want to test their knowledge and compete with other fans. The application offers two main sections:
+FootballQuiz is an innovative application designed for football enthusiasts who want to test their knowledge and compete with other fans. The application offers two main sections:
 
 ## Quiz
 
@@ -18,9 +18,8 @@ The results of quizzes and challenges are recorded and available for individual 
 
 ## Features
 
-- To access the full potential of the website, log in using the username "admin" and the password "admin."
-- Quiz section with four categories: Clubs, National Teams, World Championships, and Stadiums.
-- Squad Challenge section for selecting top-performing players.
+- Quiz section categories: Clubs, National Teams, World Championships, and Stadiums.
+- Squad Challenge section categories: Most Value, Most Scoring, Most Assist, Most Yellow-team.
 - Recording and tracking of user results.
 - Leaderboard to compare scores with other participants.
 
@@ -37,9 +36,10 @@ The results of quizzes and challenges are recorded and available for individual 
 
 ## Technology Stack
 
-Football_Quiz is built using the following technologies:
+FootballQuiz is built using the following technologies:
 
 - Framework: Django
+- Design: Bootstrap
 - Database: MongoDB
 - Database Retrieval: Pandas
 - Testing: Selenium, Pytest
@@ -59,4 +59,4 @@ Option 2:
 
 ## Contribution
 
-Contributions to Football_Quiz are welcome! If you have any ideas or improvements, feel free to submit a pull request.
+Contributions to FootballQuiz are welcome! If you have any ideas or improvements, feel free to submit a pull request.
