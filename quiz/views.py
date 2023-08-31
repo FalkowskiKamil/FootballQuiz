@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from models import Quiz
-from squad_manager import SquadManager
-from quiz_manager import get_info, get_quiz_result
+from quiz.models import Quiz
+from quiz.squad_manager import SquadManager
+from quiz.quiz_manager import get_info, get_quiz_result
 from utils.logger import configure_logger
 logger = configure_logger()
 
