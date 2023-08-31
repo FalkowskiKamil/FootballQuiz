@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
+from django.contrib import messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -145,4 +145,12 @@ LOGGING = {
             "level": "DEBUG",
         },
     },
+}
+
+# Messages class
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert-primary',
+    messages.ERROR: 'alert-danger',
+    messages.WARNING: 'alert-warning',
+    messages.INFO: 'alert-info',
 }

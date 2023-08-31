@@ -1,7 +1,7 @@
-from .quizzes.wc_quiz import WorldCupQuiz
-from .quizzes.stadium_quiz import StadiumQuiz
-from .quizzes.national_quiz import NationalQuiz
-from .quizzes.clubs_quiz import FootballQuiz
+from quiz.quizzes.wc_quiz import WorldCupQuiz
+from quiz.quizzes.stadium_quiz import StadiumQuiz
+from quiz.quizzes.national_quiz import NationalQuiz
+from quiz.quizzes.clubs_quiz import FootballQuiz
 
 
 def get_info(type):

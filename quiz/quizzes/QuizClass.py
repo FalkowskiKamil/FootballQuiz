@@ -1,8 +1,14 @@
-from utils.mongo_connection import client
+from threading import Thread
+import time
+from utils.mongo_connection import checking_connection
 
 
 class QuizClass:
-    db = client["Quiz"]
+    client = checking_connection
+    if client == None:
+        time.sleep(5)
+        client = checking_connection()
+    db = client()["Quiz"]
 
     @classmethod
     def info(cls):

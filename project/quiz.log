@@ -624,3 +624,82 @@
 2023-08-26 17:42:59,886 - utils.logger - DEBUG - User: None got: 792 in quiz: value squad
 2023-08-26 17:48:58,928 - utils.logger - DEBUG - User: None got: 236 in quiz: value squad
 2023-08-26 17:50:09,991 - utils.logger - DEBUG - User: None got: 236 in quiz: value squad
+2023-08-27 14:02:11,708 - utils.logger - DEBUG - Register user: kkkk
+2023-08-27 14:02:16,788 - utils.logger - DEBUG - Logout user: kkkk
+2023-08-27 14:05:44,842 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:05:44,853 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-27 14:05:45,256 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-27 14:05:45,258 - utils.logger - DEBUG - Logout user: 
+2023-08-27 14:05:45,663 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:05:45,674 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-27 14:05:46,079 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:06:27,472 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:06:27,482 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-27 14:06:27,887 - utils.logger - DEBUG - Login user: test_1234 
+2023-08-27 14:06:27,887 - utils.logger - DEBUG - Logout user: 
+2023-08-27 14:06:28,301 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:06:28,301 - utils.logger - DEBUG - Logout user: test_1234
+2023-08-27 14:06:28,715 - utils.logger - DEBUG - Register user: test_1234
+2023-08-27 14:09:41,165 - utils.logger - DEBUG - Register user: WWGZ44CS
+2023-08-27 14:09:41,468 - utils.logger - DEBUG - Logout user: WWGZ44CS
+2023-08-27 14:14:35,546 - utils.logger - DEBUG - Register user: T024T2DG
+2023-08-27 14:14:54,155 - utils.logger - DEBUG - Login user: asd 
+2023-08-27 14:16:15,767 - utils.logger - DEBUG - User: asd got: 394 in quiz: goal squad
+2023-08-27 14:18:00,699 - utils.logger - DEBUG - Register user: TYJ0FJ63
+2023-08-27 14:20:36,280 - utils.logger - DEBUG - Register user: X24VPBK3
+2023-08-27 14:21:55,224 - utils.logger - DEBUG - Register user: JY7SYTMO
+2023-08-27 14:23:11,833 - utils.logger - DEBUG - Register user: USE87FKA
+2023-08-27 14:24:53,200 - utils.logger - DEBUG - Register user: 934MCAXR
+2023-08-27 14:26:15,839 - utils.logger - DEBUG - Register user: GGF918EH
+2023-08-27 14:30:31,232 - utils.logger - DEBUG - Register user: NJ7U6G6I
+2023-08-27 14:31:52,081 - utils.logger - DEBUG - Register user: EUPZDBJN
+2023-08-27 14:33:57,524 - utils.logger - DEBUG - Register user: W7ES0AL9
+2023-08-27 14:35:33,119 - utils.logger - DEBUG - Register user: PY4GFRDU
+2023-08-27 14:36:38,068 - utils.logger - DEBUG - Register user: N8X8M15F
+2023-08-27 14:36:48,313 - utils.logger - DEBUG - User: N8X8M15F got: 582 in quiz: goal squad
+2023-08-27 14:37:45,087 - utils.logger - DEBUG - Register user: B9W8R0P8
+2023-08-27 14:37:55,669 - utils.logger - DEBUG - User: B9W8R0P8 got: 582 in quiz: goal squad
+2023-08-27 14:38:39,183 - utils.logger - DEBUG - User: asd got: 315 in quiz: clubs
+2023-08-27 14:39:50,407 - utils.logger - DEBUG - Register user: 4WT2KHS9
+2023-08-27 14:39:59,779 - utils.logger - DEBUG - User: 4WT2KHS9 got: 582 in quiz: goal squad
+2023-08-27 14:42:17,537 - utils.logger - DEBUG - Register user: 807T40K6
+2023-08-27 14:42:27,988 - utils.logger - DEBUG - User: 807T40K6 got: 582 in quiz: goal squad
+2023-08-27 14:45:32,392 - utils.logger - DEBUG - Register user: XZZS5JD8
+2023-08-27 14:45:42,958 - utils.logger - DEBUG - User: XZZS5JD8 got: 582 in quiz: goal squad
+2023-08-27 14:47:22,350 - utils.logger - DEBUG - Register user: U77IL7IX
+2023-08-27 14:48:36,839 - utils.logger - DEBUG - Register user: XXWQ08GL
+2023-08-27 14:50:08,862 - utils.logger - DEBUG - Register user: ZK7P9OIM
+2023-08-27 14:51:05,159 - utils.logger - DEBUG - Register user: D1A8DOHR
+2023-08-27 14:52:20,026 - utils.logger - DEBUG - Register user: 70L1Q7HG
+2023-08-27 14:53:28,077 - utils.logger - DEBUG - Register user: JIXPCJQ7
+2023-08-27 14:54:50,082 - utils.logger - DEBUG - Register user: VX21J509
+2023-08-27 14:55:51,489 - utils.logger - DEBUG - Register user: A4FDEMH5
+2023-08-27 14:57:56,496 - utils.logger - DEBUG - Register user: PV4DVYEQ
+2023-08-27 14:58:55,790 - utils.logger - DEBUG - Register user: HL9VMBTL
+2023-08-27 15:03:21,411 - utils.logger - DEBUG - Register user: XJEKQIYZ
+2023-08-27 15:04:27,992 - utils.logger - DEBUG - Register user: QXL3YVRS
+2023-08-27 15:04:38,214 - utils.logger - DEBUG - User: QXL3YVRS got: 315 in quiz: clubs
+2023-08-27 15:06:04,129 - utils.logger - DEBUG - Register user: 99H1KZZQ
+2023-08-27 15:06:14,273 - utils.logger - DEBUG - User: 99H1KZZQ got: 315 in quiz: clubs
+2023-08-27 15:07:10,021 - utils.logger - DEBUG - Register user: Y1DABXZ3
+2023-08-27 15:07:19,715 - utils.logger - DEBUG - User: Y1DABXZ3 got: 582 in quiz: goal squad
+2023-08-27 15:07:29,636 - utils.logger - DEBUG - User: Y1DABXZ3 got: 315 in quiz: clubs
+2023-08-28 17:32:31,216 - utils.logger - DEBUG - User: None got: 285 in quiz: clubs
+2023-08-28 17:55:45,704 - utils.logger - DEBUG - Register user: 123
+2023-08-28 17:56:59,253 - utils.logger - DEBUG - Logout user: 123
+2023-08-28 17:57:09,665 - utils.logger - DEBUG - Login user: 123 
+2023-08-28 17:57:57,175 - utils.logger - DEBUG - Logout user: 123
+2023-08-28 17:58:05,175 - utils.logger - DEBUG - Login user: 123 
+2023-08-28 17:59:33,797 - utils.logger - DEBUG - Logout user: 123
+2023-08-28 17:59:39,538 - utils.logger - DEBUG - Login user: 123 
+2023-08-28 18:01:20,683 - utils.logger - DEBUG - Logout user: 123
+2023-08-29 14:21:09,326 - utils.logger - DEBUG - User: asd got: 716 in quiz: value squad
+2023-08-29 14:21:47,270 - utils.logger - DEBUG - User: asd got: 244 in quiz: value squad
+2023-08-29 14:23:53,612 - utils.logger - DEBUG - User: asd got: 244 in quiz: value squad
+2023-08-29 14:24:38,569 - utils.logger - DEBUG - User: asd got: 591 in quiz: value squad
+2023-08-31 13:53:25,968 - utils.logger - DEBUG - Login user: 123 
+2023-08-31 13:54:51,712 - utils.logger - DEBUG - Login user: 123 
+2023-08-31 13:56:14,532 - utils.logger - DEBUG - Login user: 123 
+2023-08-31 13:56:49,079 - utils.logger - DEBUG - Logout user: 123
+2023-08-31 13:57:03,176 - utils.logger - DEBUG - Register user: fggdsf
+2023-08-31 13:57:10,992 - utils.logger - DEBUG - Logout user: fggdsf
