@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.utils import timezone
+from django.utils.timezone import now
 from sqlalchemy import UniqueConstraint
 
 
@@ -14,7 +14,7 @@ class Quiz(models.Model):
     )
     quiz_type = models.CharField(max_length=20)
     score = models.IntegerField()
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(default = now())
     __table_args__ = (
         UniqueConstraint(
             "score", "user", "quiz_type", name="unique_score_user_quiz_type"
@@ -37,7 +37,7 @@ class Quiz(models.Model):
             user=self.user, quiz_type=self.quiz_type, score=self.score
         ).exists():
             # Existing quiz found, update the date instead of creating a new entry
-            self.date = timezone.now()
+            self.date = now()
         else:
             # No existing quiz found, create a new entry
             super().save(*args, **kwargs)

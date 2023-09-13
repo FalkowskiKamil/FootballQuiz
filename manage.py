@@ -1,6 +1,6 @@
 import os
 import sys
-from threading import Thread
+import threading
 from utils.mongo_connection import checking_connection
 
 def main():
@@ -14,6 +14,8 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     try:
+        connection_thread = threading.Thread(target=checking_connection)
+        connection_thread.start()
         execute_from_command_line(sys.argv)
     except Exception as e:
         sys.exit(1)

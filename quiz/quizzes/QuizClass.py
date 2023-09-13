@@ -1,17 +1,16 @@
-from threading import Thread
 import time
 from utils.mongo_connection import checking_connection
 
 
 class QuizClass:
-    client = checking_connection
-    if client == None:
-        time.sleep(5)
+    def __init__(self):
         client = checking_connection()
-    db = client()["Quiz"]
+        while client == None:
+            client = checking_connection()
+            time.sleep(5)
+        self.db = client["Quiz"]
 
-    @classmethod
-    def info(cls):
+    def info(self):
         raise NotImplementedError("Subclasses must implement info() method.")
 
     @classmethod
@@ -30,6 +29,6 @@ class QuizClass:
     @classmethod
     def result(cls, items):
         score = 0
-        for answer, cls.function in zip(items, cls.functions):
-            score += cls.function(answer)
+        for answer, function in zip(items, cls.functions):
+            score += function(cls(), answer)
         return score

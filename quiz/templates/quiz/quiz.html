@@ -10,7 +10,7 @@
     {% if competition.all %}, about: 
       {% for comp in competition %}
         {% if forloop.counter <= 9 %}{{ comp }} / 
-        {% elif forloop.counter == 10 %}and {{ competition|length|add:-9 }} more...
+          {% elif forloop.counter == 10 %}and {{ competition|length|add:-9 }} more...
         {% endif %}
       {% endfor %}
     {% endif %}

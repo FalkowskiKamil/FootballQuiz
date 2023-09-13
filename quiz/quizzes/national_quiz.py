@@ -3,17 +3,19 @@ from .QuizClass import QuizClass
 
 
 class NationalQuiz(QuizClass):
-    collection_1 = QuizClass.db["national_quiz_results"]
-    df = pd.DataFrame(list(collection_1.find()))
+    def __init__(self):
+        super().__init__()
+        collection_1 = self.db["national_quiz_results"]
+        self.df = pd.DataFrame(list(collection_1.find()))
 
-    collection_2 = QuizClass.db["national_quiz_goalscorers"]
-    df2 = pd.DataFrame(list(collection_2.find()))
+        collection_2 = self.db["national_quiz_goalscorers"]
+        self.df2 = pd.DataFrame(list(collection_2.find()))
 
-    @classmethod
-    def info(cls):
-        nations = cls.df["home_team"].sort_values().unique
-        date = cls.df["date"].sort_values()
-        competition = cls.df["tournament"].unique()
+    
+    def info(self):
+        nations = self.df["home_team"].sort_values().unique
+        date = self.df["date"].sort_values()
+        competition = self.df["tournament"].unique()
         question = [
             "Most Goal",
             "Most Home Goal",
@@ -24,52 +26,52 @@ class NationalQuiz(QuizClass):
         ]
         return [nations, date[0], date.iloc[-1], competition, question]
 
-    @classmethod
-    def home_goal(cls, answer):
-        home_team = cls.df.groupby("home_team")
+    
+    def home_goal(self, answer):
+        home_team = self.df.groupby("home_team")
         rank_table = home_team["home_score"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
-    @classmethod
-    def away_goal(cls, answer):
-        away_team = cls.df.groupby("away_team")
+    
+    def away_goal(self, answer):
+        away_team = self.df.groupby("away_team")
         rank_table = away_team["away_score"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
-    @classmethod
-    def most_goal(cls, answer):
-        most_goal = cls.df2.groupby("team")
+    
+    def most_goal(self, answer):
+        most_goal = self.df2.groupby("team")
         rank_table = most_goal["team"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
-    @classmethod
-    def most_own_goal(cls, answer):
+    
+    def most_own_goal(self, answer):
         rank_table = (
-            cls.df2[cls.df2["own_goal"] == True]
+            self.df2[self.df2["own_goal"] == True]
             .groupby("team")["own_goal"]
             .count()
             .sort_values(ascending=False)
         )
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
-    @classmethod
-    def most_wc_goal(cls, answer):
-        world_cup_data = cls.df[cls.df["tournament"] == "FIFA World Cup"]
+    
+    def most_wc_goal(self, answer):
+        world_cup_data = self.df[self.df["tournament"] == "FIFA World Cup"]
         score_totals = world_cup_data.groupby(["country"])[
             "home_score", "away_score"
         ].sum()
         rank_table = score_totals["home_score"] + score_totals["away_score"]
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
-    @classmethod
-    def most_penalty_goal(cls, answer):
+    
+    def most_penalty_goal(self, answer):
         rank_table = (
-            cls.df2[cls.df2["penalty"] == True]
+            self.df2[self.df2["penalty"] == True]
             .groupby("team")["penalty"]
             .count()
             .sort_values(ascending=False)
         )
-        return cls.calculate_score(answer[1], rank_table)
+        return self.calculate_score(answer[1], rank_table)
 
     functions = [
         most_goal,

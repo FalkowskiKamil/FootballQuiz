@@ -3,12 +3,14 @@ from .QuizClass import QuizClass
 
 
 class StadiumQuiz(QuizClass):
-    collection = QuizClass.db["stadium_quiz"]
-    df = pd.DataFrame(list(collection.find()))
+    def __init__(self):
+        super().__init__()
+        collection = self.db["stadium_quiz"]
+        self.df = pd.DataFrame(list(collection.find()))
 
-    @classmethod
-    def info(cls):
-        stadium = cls.df["country"].sort_values().unique
+    
+    def info(self):
+        stadium = self.df["country"].sort_values().unique
         question = [
             "World biggest stadium:",
             "EU biggest stadium:",
@@ -19,46 +21,46 @@ class StadiumQuiz(QuizClass):
         ]
         return [stadium, None, None, None, question]
 
-    @classmethod
-    def biggest_stadium(cls, answer):
-        country = cls.df.groupby("country")
+    
+    def biggest_stadium(self, answer):
+        country = self.df.groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
-    @classmethod
-    def eu_biggest(cls, answer):
-        country = cls.df[cls.df["region"] == "Europe"].groupby("country")
+    
+    def eu_biggest(self, answer):
+        country = self.df[self.df["region"] == "Europe"].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
-    @classmethod
-    def sa_biggest(cls, answer):
-        country = cls.df[cls.df["region"] == "South America"].groupby("country")
+    
+    def sa_biggest(self, answer):
+        country = self.df[self.df["region"] == "South America"].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
-    @classmethod
-    def eu_most(cls, answer):
-        country = cls.df[
-            (cls.df["region"] == "Europe") & (cls.df["total_capacity"] >= 15000)
+    
+    def eu_most(self, answer):
+        country = self.df[
+            (self.df["region"] == "Europe") & (self.df["total_capacity"] >= 15000)
         ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
-    @classmethod
-    def as_most(cls, answer):
-        country = cls.df[
-            (cls.df["region"] == "Asia") & (cls.df["total_capacity"] >= 15000)
+    
+    def as_most(self, answer):
+        country = self.df[
+            (self.df["region"] == "Asia") & (self.df["total_capacity"] >= 15000)
         ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
-    @classmethod
-    def af_most(cls, answer):
-        country = cls.df[
-            (cls.df["region"] == "Africa") & (cls.df["total_capacity"] >= 15000)
+    
+    def af_most(self, answer):
+        country = self.df[
+            (self.df["region"] == "Africa") & (self.df["total_capacity"] >= 15000)
         ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
-        return cls.calculate_score(answer[1], rank_table, top=5)
+        return self.calculate_score(answer[1], rank_table, top=5)
 
     functions = [biggest_stadium, eu_biggest, sa_biggest, eu_most, as_most, af_most]

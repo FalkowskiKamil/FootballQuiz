@@ -61,7 +61,8 @@ def result(request, quiz_type):
         if "goalkeeper" in request.POST.keys():
             score = SquadManager.get_squad_result(quiz_type, request.POST)
         else:
-            score = get_quiz_result(quiz_type, request.POST.items())
+            print(f'\n\n\n{request.POST.items()}\n\n\n')
+            score = get_quiz_result(quiz_type, items = request.POST.items())
         # Saving result
         user = request.user if request.user.is_authenticated else None
         result = Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)

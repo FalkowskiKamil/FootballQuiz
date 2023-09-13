@@ -7,16 +7,20 @@ from quiz.quizzes.clubs_quiz import FootballQuiz
 def get_info(type):
     match type:
         case "wc":
-            return WorldCupQuiz.info()
+            worldcup_quiz = WorldCupQuiz()
+            return worldcup_quiz.info()
 
         case "stadium":
-            return StadiumQuiz.info()
+            stadium = StadiumQuiz()
+            return stadium.info()
 
         case "national":
-            return NationalQuiz.info()
+            national = NationalQuiz()
+            return national.info()
 
         case "clubs":
-            return FootballQuiz.info()
+            footballquiz = FootballQuiz()
+            return footballquiz.info()
 
 
 def get_quiz_result(quiz_type, items):

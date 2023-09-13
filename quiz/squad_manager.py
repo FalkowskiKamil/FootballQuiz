@@ -5,9 +5,9 @@ from utils.mongo_connection import checking_connection
 class SquadManager():
     def __init__(self):
         client = checking_connection()
-        if client == None:
-            time.sleep(5)
+        while client == None:
             client = checking_connection()
+            time.sleep(5)
         self.db = client["Squad"]
 
     @classmethod
