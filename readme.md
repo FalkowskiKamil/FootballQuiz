@@ -13,8 +13,7 @@ In this exciting section, users can choose eleven players who have the highest p
 The results of quizzes and challenges are recorded and available for individual users, as well as in a ranking for all participants.
 
 ## Overview
-[You can have an overview of the functionality of the app on this site](https://footballquiz.falkowskikamil.site/) [or this](http://footballquiz.falkowskikamil.site)
-
+[You can have an overview of the functionality of the app on this site](https://footballquiz.falkowskikamil.site/)
 
 ## Features
 
