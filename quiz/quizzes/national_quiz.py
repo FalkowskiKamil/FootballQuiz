@@ -57,9 +57,7 @@ class NationalQuiz(QuizClass):
     
     def most_wc_goal(self, answer):
         world_cup_data = self.df[self.df["tournament"] == "FIFA World Cup"]
-        score_totals = world_cup_data.groupby(["country"])[
-            "home_score", "away_score"
-        ].sum()
+        score_totals = world_cup_data.groupby(["country"])[["home_score", "away_score"]].sum()
         rank_table = score_totals["home_score"] + score_totals["away_score"]
         return self.calculate_score(answer[1], rank_table)
 

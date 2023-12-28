@@ -93,3 +93,15 @@
 .carousel-indicators .active .indicator-button {
   background-color: #f00; /* Customize the active button color */
 }
+
+.logo {
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.logo-text {
+    color: var(--text);
+    text-decoration: none;
+    text-overflow: ellipsis;
+}
