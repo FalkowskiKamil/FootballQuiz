@@ -10,7 +10,6 @@ class NationalQuiz(QuizClass):
 
         collection_2 = self.db["national_quiz_goalscorers"]
         self.df2 = pd.DataFrame(list(collection_2.find()))
-
     
     def info(self):
         nations = self.df["home_team"].sort_values().unique
@@ -26,45 +25,39 @@ class NationalQuiz(QuizClass):
         ]
         return [nations, date[0], date.iloc[-1], competition, question]
 
-    
     def home_goal(self, answer):
         home_team = self.df.groupby("home_team")
         rank_table = home_team["home_score"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def away_goal(self, answer):
         away_team = self.df.groupby("away_team")
         rank_table = away_team["away_score"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_goal(self, answer):
         most_goal = self.df2.groupby("team")
         rank_table = most_goal["team"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_own_goal(self, answer):
         rank_table = (
-            self.df2[self.df2["own_goal"] == True]
+            self.df2[self.df2["own_goal"] is True]
             .groupby("team")["own_goal"]
             .count()
             .sort_values(ascending=False)
         )
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_wc_goal(self, answer):
         world_cup_data = self.df[self.df["tournament"] == "FIFA World Cup"]
         score_totals = world_cup_data.groupby(["country"])[["home_score", "away_score"]].sum()
         rank_table = score_totals["home_score"] + score_totals["away_score"]
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_penalty_goal(self, answer):
         rank_table = (
-            self.df2[self.df2["penalty"] == True]
+            self.df2[self.df2["penalty"] is True]
             .groupby("team")["penalty"]
             .count()
             .sort_values(ascending=False)

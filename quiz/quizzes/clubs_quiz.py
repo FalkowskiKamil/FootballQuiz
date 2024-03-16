@@ -7,7 +7,6 @@ class FootballQuiz(QuizClass):
         super().__init__()
         collection = self.db["clubs_quiz"]
         self.df = pd.DataFrame(list(collection.find()))
-
     
     def info(self):
         clubs = self.df["Team"].sort_values().unique()
@@ -22,19 +21,16 @@ class FootballQuiz(QuizClass):
             "Most Draw",
         ]
         return [clubs, date[0], date[-1], competition, question]
-
     
     def home_goal(self, answer):
         home_team = self.df.groupby("Team")
         rank_table = home_team["Team_Score"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def away_goal(self, answer):
         away_team = self.df.groupby("Opponent")
         rank_table = away_team["Opponent_Score"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_goal(self, answer):
         home_team_scores = self.df.groupby("Team")["Team_Score"].sum()
@@ -42,7 +38,6 @@ class FootballQuiz(QuizClass):
         team_scores = home_team_scores.add(away_team_scores, fill_value=0)
         rank_table = team_scores.sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_penalty(self, answer):
         home_penalty = self.df.groupby("Team")["Home_Penalties"].sum()
@@ -50,7 +45,6 @@ class FootballQuiz(QuizClass):
         team_penalty = home_penalty.add(away_penalty, fill_value=0)
         rank_table = team_penalty.sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_won(self, answer):
         home_won = (
@@ -63,7 +57,6 @@ class FootballQuiz(QuizClass):
         )
         rank_table = home_won.add(away_won, fill_value=0)
         return self.calculate_score(answer[1], rank_table)
-
     
     def most_draw(self, answer):
         home_draw = (

@@ -4,8 +4,8 @@ from quiz.quizzes.national_quiz import NationalQuiz
 from quiz.quizzes.clubs_quiz import FootballQuiz
 
 
-def get_info(type):
-    match type:
+def get_info(quiz_type):
+    match quiz_type:
         case "wc":
             worldcup_quiz = WorldCupQuiz()
             return worldcup_quiz.info()

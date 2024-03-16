@@ -21,14 +21,12 @@ class WorldCupQuiz(QuizClass):
         ]
         return [nations, date.iloc[-1], date[0], None, questions]
 
-     
     def apperance(self, answer):
         home_match = self.df["home_team"].value_counts()
         away_match = self.df["away_team"].value_counts()
         rank_table = home_match.add(away_match).sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=30)
 
-     
     def score_goal(self, answer):
         home_scores = self.df.groupby("home_team")["home_score"].sum()
         away_scores = self.df.groupby("away_team")["away_score"].sum()
@@ -37,7 +35,6 @@ class WorldCupQuiz(QuizClass):
         )
         return self.calculate_score(answer[1], rank_table, top=30)
 
-     
     def penalty_goal(self, answer):
         home_penalty = self.df.groupby("home_team")["home_penalty"].sum()
         away_penalty = self.df.groupby("away_team")["away_penalty"].sum()
@@ -46,7 +43,6 @@ class WorldCupQuiz(QuizClass):
         )
         return self.calculate_score(answer[1], rank_table, top=30)
 
-     
     def conceded_goal(self, answer):
         home_conceded = self.df.groupby("home_team")["away_score"].sum()
         away_conceded = self.df.groupby("away_team")["home_score"].sum()
@@ -55,14 +51,12 @@ class WorldCupQuiz(QuizClass):
         )
         return self.calculate_score(answer[1], rank_table, top=30)
 
-     
     def most_red(self, answer):
         home_red = self.df.groupby("home_team")["home_red_card"].sum()
         away_red = self.df.groupby("away_team")["away_red_card"].sum()
         rank_table = home_red.add(away_red, fill_value=0).sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=30)
 
-     
     def goal_to_apperance(self, answer):
         home_goals = self.df.groupby("home_team")["home_score"].sum()
         away_goals = self.df.groupby("away_team")["away_score"].sum()

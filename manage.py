@@ -3,6 +3,7 @@ import sys
 import threading
 from utils.mongo_connection import checking_connection
 
+
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
     try:
@@ -18,6 +19,7 @@ def main():
         connection_thread.start()
         execute_from_command_line(sys.argv)
     except Exception as e:
+        print(e)
         sys.exit(1)
 
 

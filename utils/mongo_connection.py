@@ -1,13 +1,13 @@
-from pymongo import MongoClient
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 CLIENT = False
 CONNECTION = False
 
+
 def checking_connection():
     global CONNECTION, CLIENT
-    if CONNECTION == True:
+    if CONNECTION is True:
         print("Connected")
         return CLIENT
     else:

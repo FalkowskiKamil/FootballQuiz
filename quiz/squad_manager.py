@@ -2,18 +2,19 @@ import time
 import pandas as pd
 from utils.mongo_connection import checking_connection
 
-class SquadManager():
+
+class SquadManager:
     def __init__(self):
         client = checking_connection()
-        while client == None:
+        while client is None:
             client = checking_connection()
             time.sleep(5)
         self.db = client["Squad"]
 
     @classmethod
-    def info(cls, type):
+    def info(cls, quiz_type):
         instance = cls()
-        match type:
+        match quiz_type:
             case "value squad":
                 collection = instance.db["players"]
                 cls.df = pd.DataFrame(collection.find())
@@ -29,11 +30,11 @@ class SquadManager():
         return cls.df
 
     @classmethod
-    def get_squad_result(self, quiz_type, items):
-        return self.calculate_score(self.devide_position(items), self.info(quiz_type))
+    def get_squad_result(cls, quiz_type, items):
+        return cls.calculate_score(cls.devide_position(items), cls.info(quiz_type))
 
     @classmethod
-    def devide_position(self, players):
+    def devide_position(cls, players):
         players_dict = {
             "Attack": players.getlist("striker[]"),
             "Midfield": players.getlist("middlefielder[]"),
@@ -43,7 +44,7 @@ class SquadManager():
         return players_dict
 
     @classmethod
-    def calculate_score(cls, answer, df):
+    def calculate_score(cls, answer, _):
         score = 0
         instance = cls()
         for position, players in answer.items():

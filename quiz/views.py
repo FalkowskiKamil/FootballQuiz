@@ -8,7 +8,7 @@ logger = configure_logger()
 
 
 def main(request):
-    context={}
+    context = {}
     return render(request, template_name="quiz/menu_main.html", context=context)
 
 
@@ -55,19 +55,18 @@ def squad_challange(request, quiz_type):
 
 
 def result(request, quiz_type):
-    context={"score": 0}
+    context = {"score": 0}
     if request.method == "POST":
         # Checking type of posted quiz
         if "goalkeeper" in request.POST.keys():
             score = SquadManager.get_squad_result(quiz_type, request.POST)
         else:
-            print(f'\n\n\n{request.POST.items()}\n\n\n')
-            score = get_quiz_result(quiz_type, items = request.POST.items())
+            score = get_quiz_result(quiz_type, items=request.POST.items())
         # Saving result
         user = request.user if request.user.is_authenticated else None
-        result = Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
-        logger.debug(f"{result}")
-        context = {"score": result}
+        result_object = Quiz.objects.create(user=user, quiz_type=quiz_type, score=score)
+        logger.debug(f"{result_object}")
+        context = {"score": result_object}
     return render(request, template_name="quiz/result.html", context=context)
 
 

@@ -7,7 +7,6 @@ class StadiumQuiz(QuizClass):
         super().__init__()
         collection = self.db["stadium_quiz"]
         self.df = pd.DataFrame(list(collection.find()))
-
     
     def info(self):
         stadium = self.df["country"].sort_values().unique
@@ -20,25 +19,21 @@ class StadiumQuiz(QuizClass):
             "Africa most +15k stadium",
         ]
         return [stadium, None, None, None, question]
-
     
     def biggest_stadium(self, answer):
         country = self.df.groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=5)
-
     
     def eu_biggest(self, answer):
         country = self.df[self.df["region"] == "Europe"].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=5)
-
     
     def sa_biggest(self, answer):
         country = self.df[self.df["region"] == "South America"].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=5)
-
     
     def eu_most(self, answer):
         country = self.df[
@@ -46,7 +41,6 @@ class StadiumQuiz(QuizClass):
         ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=5)
-
     
     def as_most(self, answer):
         country = self.df[
@@ -54,7 +48,6 @@ class StadiumQuiz(QuizClass):
         ].groupby("country")
         rank_table = country["total_capacity"].count().sort_values(ascending=False)
         return self.calculate_score(answer[1], rank_table, top=5)
-
     
     def af_most(self, answer):
         country = self.df[

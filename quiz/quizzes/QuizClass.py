@@ -5,7 +5,7 @@ from utils.mongo_connection import checking_connection
 class QuizClass:
     def __init__(self):
         client = checking_connection()
-        while client == None:
+        while client is None:
             client = checking_connection()
             time.sleep(5)
         self.db = client["Quiz"]
@@ -14,7 +14,7 @@ class QuizClass:
         raise NotImplementedError("Subclasses must implement info() method.")
 
     @classmethod
-    def calculate_score(_, answer, rank_table, top=100):
+    def calculate_score(cls, answer, rank_table, top=100):
         # Checking if answer is in the rank_table
         if answer not in rank_table:
             return 0

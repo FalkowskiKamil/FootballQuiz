@@ -704,3 +704,6 @@
 2023-08-31 13:57:03,176 - utils.logger - DEBUG - Register user: fggdsf
 2023-08-31 13:57:10,992 - utils.logger - DEBUG - Logout user: fggdsf
 2023-09-13 17:13:43,420 - utils.logger - DEBUG - User: None got: 447 in quiz: wc
+2023-11-22 15:18:38,193 - utils.logger - DEBUG - Login user: admin 
+2023-11-22 15:28:54,192 - utils.logger - DEBUG - User: admin got: 285 in quiz: clubs
+2023-11-22 15:33:49,433 - utils.logger - DEBUG - User: admin got: 0 in quiz: national
